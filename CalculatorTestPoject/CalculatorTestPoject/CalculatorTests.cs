@@ -16,6 +16,14 @@ namespace CalculatorTestPoject
         }
 
         [TestMethod]
+        public void TestAddWithOtherNumber()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Add(3, 10);
+            Assert.AreEqual(13, result);
+        }
+
+        [TestMethod]
         public void TestAddDoubleWithZero()
         {
             Calculator obj = new Calculator();
