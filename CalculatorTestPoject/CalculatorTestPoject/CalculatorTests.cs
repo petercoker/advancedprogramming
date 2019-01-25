@@ -63,6 +63,14 @@ namespace CalculatorTestPoject
             Assert.AreEqual(9, result);
         }
 
+        [TestMethod]
+        public void TestAddDoubleWithOneZero()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Add(1, 0);
+            Assert.AreEqual(1, result);
+        }
+
         //[TestMethod]
         //public void TestSubstact()
         //{
