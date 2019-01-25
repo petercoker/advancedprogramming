@@ -55,6 +55,14 @@ namespace CalculatorTestPoject
             Assert.AreEqual(0, result);
         }
 
+        [TestMethod]
+        public void TestAddDoubleWithMinusWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Add(-1, 10);
+            Assert.AreEqual(9, result);
+        }
+
         //[TestMethod]
         //public void TestSubstact()
         //{
