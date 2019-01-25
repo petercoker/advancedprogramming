@@ -16,7 +16,7 @@ namespace CalculatorTestPoject
         }
 
         [TestMethod]
-        public void TestAddDecimalWithZero()
+        public void TestAddDoubleWithZero()
         {
             Calculator obj = new Calculator();
             double result = obj.Add(10.0, 10);
