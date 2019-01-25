@@ -31,6 +31,14 @@ namespace CalculatorTestPoject
             Assert.AreEqual(20.1, result);
         }
 
+        [TestMethod]
+        public void TestAddDoubleWithMinus()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Add(-10.0, 10);
+            Assert.AreEqual(0, result);
+        }
+
         //[TestMethod]
         //public void TestSubstact()
         //{
