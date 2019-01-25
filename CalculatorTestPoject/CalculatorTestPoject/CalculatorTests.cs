@@ -7,6 +7,8 @@ namespace CalculatorTestPoject
     [TestClass]
     public class CalculatorTests
     {
+        #region TestAdd
+
         [TestMethod]
         public void TestAddDefault()
         {
@@ -71,13 +73,54 @@ namespace CalculatorTestPoject
             Assert.AreEqual(1, result);
         }
 
-        //[TestMethod]
-        //public void TestSubstact()
-        //{
-        //    Calculator obj = new Calculator();
-        //    decimal result = obj.Substact(10, 10);
-        //    Assert.AreEqual(20, result);
-        //}
+        #endregion
+
+        #region TestSubstact
+
+        [TestMethod]
+        public void TestSubstactDefault()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Substact(10, 10);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void TestSubstactWithMinusLowWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Substact(2, 3);
+            Assert.AreEqual(-1, result);
+        }
+
+        [TestMethod]
+        public void TestSubstactWithMinusHighWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Substact(8, 3);
+            Assert.AreEqual(5, result);
+        }
+
+
+        [TestMethod]
+        public void TestSubstactWithDouble()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Substact(10.0, 10);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void TestSubstactWithDoubleNumber()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Substact(10.1, 10);
+            Assert.AreEqual(0.1, result);
+        }
+
+
+        #endregion
+
 
 
     }
