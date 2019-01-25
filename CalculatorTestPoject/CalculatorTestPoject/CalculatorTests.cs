@@ -23,6 +23,14 @@ namespace CalculatorTestPoject
             Assert.AreEqual(20, result);
         }
 
+        [TestMethod]
+        public void TestAddDoubleWithNumber()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Add(10.1, 10);
+            Assert.AreEqual(20.1, result);
+        }
+
         //[TestMethod]
         //public void TestSubstact()
         //{
