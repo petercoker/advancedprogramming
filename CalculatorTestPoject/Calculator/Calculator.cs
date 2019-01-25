@@ -8,7 +8,7 @@ namespace CalculatorFunctions
 {
     public class Calculator
     {
-        public decimal Add(int number1, int number2)
+        public double Add(double number1, double number2)
         {
             return number1 + number2;
         }
