@@ -47,6 +47,14 @@ namespace CalculatorTestPoject
             Assert.AreEqual(0, result);
         }
 
+        [TestMethod]
+        public void TestAddDoubleWitTwoZero()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Add(0, 0);
+            Assert.AreEqual(0, result);
+        }
+
         //[TestMethod]
         //public void TestSubstact()
         //{
