@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using CalculatorFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,10 +8,10 @@ namespace CalculatorTestPoject
     [TestClass]
     public class CalculatorTests
     {
-        #region TestAdd
+        #region Test Add
 
         [TestMethod]
-        public void TestAddDefault()
+        public void TestAddPostitionWholeNumber()
         {
             Calculator obj = new Calculator();
             double result = obj.Add(10, 10);
@@ -18,110 +19,115 @@ namespace CalculatorTestPoject
         }
 
         [TestMethod]
-        public void TestAddWithOtherNumber()
+        public void TestAddDiffPostitionWholeNumber()
         {
             Calculator obj = new Calculator();
-            double result = obj.Add(3, 10);
-            Assert.AreEqual(13, result);
+            double result = obj.Add(5, 10);
+            Assert.AreEqual(15, result);
         }
 
         [TestMethod]
-        public void TestAddDoubleWithZero()
+        public void TestAddPostitionDoubleNumber()
         {
             Calculator obj = new Calculator();
-            double result = obj.Add(10.0, 10);
+            double result = obj.Add(5.0, 10);
+            Assert.AreEqual(15, result);
+        }
+
+        [TestMethod]
+        public void TestAddDiffPostitionDoubleNumber()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Add(5.1, 10);
+            Assert.AreEqual(15.1, result);
+        }
+
+        [TestMethod]
+        public void TestAddTwoPostitionDoubleNumber()
+        {
+            Calculator obj = new Calculator();
+            double result = obj.Add(10.0, 10.0);
             Assert.AreEqual(20, result);
         }
 
         [TestMethod]
-        public void TestAddDoubleWithNumber()
+        public void TestAddTwoDiffPostitionDoubleNumber()
         {
             Calculator obj = new Calculator();
-            double result = obj.Add(10.1, 10);
-            Assert.AreEqual(20.1, result);
+            double result = obj.Add(10.1, 10.1);
+            Assert.AreEqual(20.2, result);
         }
 
         [TestMethod]
-        public void TestAddDoubleWithMinus()
+        public void TestAddPostitionNumberWithZero()
         {
             Calculator obj = new Calculator();
-            double result = obj.Add(-10.0, 10);
-            Assert.AreEqual(0, result);
-        }
-
-        [TestMethod]
-        public void TestAddDoubleWitTwoZero()
-        {
-            Calculator obj = new Calculator();
-            double result = obj.Add(0, 0);
-            Assert.AreEqual(0, result);
-        }
-
-        [TestMethod]
-        public void TestAddDoubleWithMinusWholeNumber()
-        {
-            Calculator obj = new Calculator();
-            double result = obj.Add(-1, 10);
-            Assert.AreEqual(9, result);
-        }
-
-        [TestMethod]
-        public void TestAddDoubleWithOneZero()
-        {
-            Calculator obj = new Calculator();
-            double result = obj.Add(1, 0);
-            Assert.AreEqual(1, result);
-        }
-
-        #endregion
-
-        #region TestSubstact
-
-        [TestMethod]
-        public void TestSubstactDefault()
-        {
-            Calculator obj = new Calculator();
-            double result = obj.Substact(10, 10);
-            Assert.AreEqual(0, result);
-        }
-
-        [TestMethod]
-        public void TestSubstactWithMinusLowWholeNumber()
-        {
-            Calculator obj = new Calculator();
-            double result = obj.Substact(2, 3);
-            Assert.AreEqual(-1, result);
-        }
-
-        [TestMethod]
-        public void TestSubstactWithMinusHighWholeNumber()
-        {
-            Calculator obj = new Calculator();
-            double result = obj.Substact(8, 3);
-            Assert.AreEqual(5, result);
+            double result = obj.Add(10, 0);
+            Assert.AreEqual(10, result);
         }
 
 
-        [TestMethod]
-        public void TestSubstactWithDouble()
-        {
-            Calculator obj = new Calculator();
-            double result = obj.Substact(10.0, 10);
-            Assert.AreEqual(0, result);
-        }
 
-        [TestMethod]
-        public void TestSubstactWithDoubleNumber()
-        {
-            Calculator obj = new Calculator();
-            double result = obj.Substact(10.1, 10);
-            Assert.AreEqual(0.1, result);
-        }
+
+
+
 
 
         #endregion
 
+        #region Test Substact
 
+        
+        #endregion
+
+        #region Test Divide
+
+
+
+        #endregion
+
+        #region Test Multiply
+
+
+
+
+        #endregion
+
+        #region Test Modulus 
+
+
+
+        #endregion
+
+        #region Test Pie
+
+
+
+        #endregion
+
+        #region Test Square Root
+
+
+
+        #endregion
+
+        #region Test Sin
+
+
+
+        #endregion
+
+        #region Test Cos
+
+
+
+        #endregion
+
+        #region Test Tan
+
+        
+
+        #endregion
 
     }
 }
