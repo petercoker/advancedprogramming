@@ -18,5 +18,27 @@ namespace CalculatorFunctions
         {
             return number1 - number2;
         }
+
+        public double Divide(double number1, double number2)
+        {
+            return number1 / number2;
+        }
+
+        public void DivideByZero(double number1, double number2)
+        {
+            if (number2 == 0)
+            {
+                throw new ArgumentNullException(nameof(number2));
+            }
+
+            else
+            {
+                Console.WriteLine(number1 / number2);
+            }
+        
+        }
+
+
+        
     }
 }

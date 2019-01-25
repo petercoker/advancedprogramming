@@ -238,17 +238,131 @@ namespace CalculatorTestPoject
             Assert.AreEqual(5, result);
         }
 
-
-
-
-
-
         #endregion
 
         #region Test Divide
+        [TestMethod]
+        public void TestDividePostitionWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(10, 10);
+            Assert.AreEqual(1, result);
+        }
 
+        [TestMethod]
+        public void TestDivideDiffPostitionWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(5, 10);
+            Assert.AreEqual(0.5, result);
+        }
 
+        [TestMethod]
+        public void TestDividePostitionVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(5.0, 10);
+            Assert.AreEqual(0.5, result);
+        }
 
+        [TestMethod]
+        public void TestDivideDiffPostitionVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(5.1, 10);
+            Assert.AreEqual(0.51, result);
+        }
+
+        [TestMethod]
+        public void TestDivideTwoPostitionVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(10.0, 10.0);
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void TestDivideTwoDiffPostitionVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(10.1, 10.1);
+            Assert.AreEqual(1, result);
+        }
+
+        public void TestDividePostitionNumberWithZeroFirst()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(0, 10);
+            Assert.AreEqual(10, result);
+        }
+
+        //[TestMethod]
+        //public void TestDividePostitionNumberWithZero()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.DivideByZero(10.0, 0);
+        //    Assert.Fail("Can not divide by 0", result);
+        //    Assert.ThrowsException<string>()
+        //    Assert.AreEqual(10, result);
+        //    Return //Can not divide by 0
+        //}
+
+        [TestMethod]
+        public void TestDivideNegativeWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(-10, 10);
+            Assert.AreEqual(-1, result);
+        }
+
+        [TestMethod]
+        public void TestDivideDiffNegativeWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(-5, 10);
+            Assert.AreEqual(-0.5, result);
+        }
+
+        [TestMethod]
+        public void TestDivideNegativeVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(-5.0, 10);
+            Assert.AreEqual(-0.5, result);
+        }
+
+        [TestMethod]
+        public void TestDivideDiffNegativeVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(-5.1, 10);
+            Assert.AreEqual(-0.51, result);
+        }
+
+        [TestMethod]
+        public void TestDivideTwoNegativeVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(-10.0, 10.0);
+            Assert.AreEqual(-1, result);
+        }
+
+        [TestMethod]
+        public void TestDivideTwoDiffNegativeVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Divide(-10.1, 10.1);
+            Assert.AreEqual(-1, result);
+        }
+
+        //[TestMethod] //Throw expect
+        //public void TestDivideNegativeNumberWithZero()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Divide(-5, 0);
+        //    Assert.AreEqual(-5, result);
+        //}
+        
         #endregion
 
         #region Test Multiply
