@@ -362,10 +362,123 @@ namespace CalculatorTestPoject
         //    var result = obj.Divide(-5, 0);
         //    Assert.AreEqual(-5, result);
         //}
-        
+
         #endregion
 
         #region Test Multiply
+
+
+        [TestMethod]
+        public void TestMutliplyPostitionWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(10, 10);
+            Assert.AreEqual(100, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyDiffPostitionWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(5, 10);
+            Assert.AreEqual(50, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyPostitionVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(5.0, 10);
+            Assert.AreEqual(50, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyDiffPostitionVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(5.1, 10);
+            Assert.AreEqual(51, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyTwoPostitionVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(10.0, 10.0);
+            Assert.AreEqual(100, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyTwoDiffPostitionVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(10.1, 10.1);
+            Assert.AreEqual(102.01, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyPostitionNumberWithZero()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(10, 0);
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyNegativeWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(-10, 10);
+            Assert.AreEqual(-100, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyDiffNegativeWholeNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(-5, 10);
+            Assert.AreEqual(-50, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyNegativeVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(-5.0, 10);
+            Assert.AreEqual(-50, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyDiffNegativeVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(-5.1, 10);
+            Assert.AreEqual(-51, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyTwoNegativeVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(-10.0, 10.0);
+            Assert.AreEqual(-100, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyTwoDiffNegativeVarNumber()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(-10.1, 10.1);
+            Assert.AreEqual(-102.01, result);
+        }
+
+        [TestMethod]
+        public void TestMutliplyNegativeNumberWithZero()
+        {
+            Calculator obj = new Calculator();
+            var result = obj.Mutliply(-5, 0);
+            Assert.AreEqual(0, result);
+        }
 
 
 
