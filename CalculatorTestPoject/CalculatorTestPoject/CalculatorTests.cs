@@ -344,6 +344,192 @@ namespace CalculatorTestPoject
 
         #endregion
 
+        #region Test Multiply
+
+        [TestMethod]
+        public void Multiply_UserMultiplyPositiveNumber_ReturnsPositiveNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(10, 10);
+
+            // Assert
+            Assert.AreEqual(100, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyDiffPositiveNumber_ReturnsPositiveNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(5, 10);
+
+            // Assert
+            Assert.AreEqual(50, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyDoublePositiveNumber_ReturnsPositiveNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(5.0, 10);
+
+            // Assert
+            Assert.AreEqual(50, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyDiffDoublePositiveNumber_ReturnsPositiveNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(5.1, 10);
+
+            // Assert
+            Assert.AreEqual(51, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyDoublePositiveNumberZero_ReturnsPositiveNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(10.0, 10.0);
+
+            // Assert
+            Assert.AreEqual(100, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyTwoDiffDoublePositiveNumber_ReturnsPositiveNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(10.10, 10.10);
+
+            // Assert
+            Assert.AreEqual(102.01, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyPositiveNumberZero_ReturnsPositiveNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(10, 0);
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyNegativeNumber_ReturnsNegativeNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(-10, 10);
+
+            // Assert
+            Assert.AreEqual(-100, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyDiffNegativeNumber_ReturnsNegativeNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(-5, 10);
+
+            // Assert
+            Assert.AreEqual(-50, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyDoubleNegativeNumber_ReturnsNegativeNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(-5.0, 10);
+
+            // Assert
+            Assert.AreEqual(-50, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyDiffDoubleNegativeNumber_ReturnsNegativeNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(-5.1, 10);
+
+            // Assert
+            Assert.AreEqual(-51, result);
+        }
+
+        [TestMethod]
+        public void Multiply_UserMultiplyDoubleNegativeNumberZero_ReturnsNegativeNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(-10.0, 10.0);
+
+            // Assert
+            Assert.AreEqual(-100, result);
+        }
+
+        //[TestMethod]
+        //public void Multiply_UserMultiplyDiffTwoDoubleNegativeNumber_ReturnsNegativeNumber()
+        //{
+        //    // Arrange
+        //    Calculator obj = new Calculator();
+
+        //    // Act
+        //    var result = obj.Multiply(10.1, 10.1);
+
+        //    // Assert
+        //    Assert.AreEqual(102.01, result);
+        //}
+
+        [TestMethod]
+        public void Multiply_UserMultiplyNegativeNumber_ReturnsPositiveNumber()
+        {
+            // Arrange
+            Calculator obj = new Calculator();
+
+            // Act
+            var result = obj.Multiply(-5, 0);
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        #endregion
+
         #region Test Divide
 
         [TestMethod]
@@ -544,192 +730,6 @@ namespace CalculatorTestPoject
         //    Assert.AreEqual(-5, result);
         //}
 
-
-        #endregion
-
-        #region Test Multiply
-
-        [TestMethod]
-        public void Multiply_UserMultiplyPositiveNumber_ReturnsPositiveNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(10, 10);
-
-            // Assert
-            Assert.AreEqual(100, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDiffPositiveNumber_ReturnsPositiveNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(5, 10);
-
-            // Assert
-            Assert.AreEqual(50, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDoublePositiveNumber_ReturnsPositiveNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(5.0, 10);
-
-            // Assert
-            Assert.AreEqual(50, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDiffDoublePositiveNumber_ReturnsPositiveNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(5.1, 10);
-
-            // Assert
-            Assert.AreEqual(51, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDoublePositiveNumberZero_ReturnsPositiveNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(10.0, 10.0);
-
-            // Assert
-            Assert.AreEqual(100, result);
-        }
-
-        //[TestMethod] //Check
-        //public void Multiply_UserMultiplyTwoDiffDoublePositiveNumber_ReturnsPositiveNumber()
-        //{
-        //    // Arrange
-        //    Calculator obj = new Calculator();
-
-        //    // Act
-        //    var result = obj.Multiply(10.10, 10.10);
-
-        //    // Assert
-        //    Assert.AreEqual(102.01, result);
-        //}
-
-        [TestMethod]
-        public void Multiply_UserMultiplyPositiveNumberZero_ReturnsPositiveNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(10, 0);
-
-            // Assert
-            Assert.AreEqual(0, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(-10, 10);
-
-            // Assert
-            Assert.AreEqual(-100, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDiffNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(-5, 10);
-
-            // Assert
-            Assert.AreEqual(-50, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDoubleNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(-5.0, 10);
-
-            // Assert
-            Assert.AreEqual(-50, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDiffDoubleNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(-5.1, 10);
-
-            // Assert
-            Assert.AreEqual(-51, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDoubleNegativeNumberZero_ReturnsNegativeNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(-10.0, 10.0);
-
-            // Assert
-            Assert.AreEqual(-100, result);
-        }
-
-        //[TestMethod]
-        //public void Multiply_UserMultiplyDiffTwoDoubleNegativeNumber_ReturnsNegativeNumber()
-        //{
-        //    // Arrange
-        //    Calculator obj = new Calculator();
-
-        //    // Act
-        //    var result = obj.Multiply(-10.1, 10.1);
-
-        //    // Assert
-        //    Assert.AreEqual(-102.01, result);
-        //}
-
-        [TestMethod]
-        public void Multiply_UserMultiplyNegativeNumber_ReturnsPositiveNumber()
-        {
-            // Arrange
-            Calculator obj = new Calculator();
-
-            // Act
-            var result = obj.Multiply(-5, 0);
-
-            // Assert
-            Assert.AreEqual(0, result);
-        }
 
         #endregion
 

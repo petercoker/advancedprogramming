@@ -38,9 +38,10 @@ namespace CalculatorFunctions
         
         }
 
-        public double Multiply(double number1, double number2)
+        public decimal Multiply(double number1, double number2)
         {
-            return number1 * number2; 
+            decimal sum = Convert.ToDecimal(number1 * number2);
+            return sum;
         }
 
         public double Modulo(double number1, double number2)
