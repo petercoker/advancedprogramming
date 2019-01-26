@@ -408,13 +408,13 @@ namespace CalculatorTestPoject
             Assert.AreEqual(100, result);
         }
 
-        [TestMethod]
-        public void TestMutliplyTwoDiffPostitionVarNumber()
-        {
-            Calculator obj = new Calculator();
-            var result = obj.Mutliply(10.1, 10.1);
-            Assert.AreEqual(102.01, result);
-        }
+        //[TestMethod]
+        //public void TestMutliplyTwoDiffPostitionVarNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Mutliply(10.1, 10.1);
+        //    Assert.AreEqual(102.01, result);
+        //}
 
         [TestMethod]
         public void TestMutliplyPostitionNumberWithZero()
@@ -464,21 +464,21 @@ namespace CalculatorTestPoject
             Assert.AreEqual(-100, result);
         }
 
-        [TestMethod]
-        public void TestMutliplyTwoDiffNegativeVarNumber()
-        {
-            Calculator obj = new Calculator();
-            var result = obj.Mutliply(-10.1, 10.1);
-            Assert.AreEqual(-102.01, result);
-        }
+        //[TestMethod]
+        //public void TestMutliplyTwoDiffNegativeVarNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Mutliply(-10.1, 10.1);
+        //    Assert.AreEqual(-102.01, result);
+        //}
 
-        [TestMethod]
-        public void TestMutliplyNegativeNumberWithZero()
-        {
-            Calculator obj = new Calculator();
-            var result = obj.Mutliply(-5, 0);
-            Assert.AreEqual(0, result);
-        }
+        //[TestMethod]
+        //public void TestMutliplyNegativeNumberWithZero()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Mutliply(-5, 0);
+        //    Assert.AreEqual(0, result);
+        //}
 
 
 
@@ -487,8 +487,118 @@ namespace CalculatorTestPoject
 
         #region Test Modulus 
 
+        //[TestMethod]
+        //public void TestModuloPostitionWholeNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(10, 10);
+        //    Assert.AreEqual(1, result);
+        //}
 
+        //[TestMethod]
+        //public void TestModuloDiffPostitionWholeNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(5, 10);
+        //    Assert.AreEqual(0.5, result);
+        //}
 
+        //[TestMethod]
+        //public void TestModuloPostitionVarNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(5.0, 10);
+        //    Assert.AreEqual(0.5, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloDiffPostitionVarNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(5.1, 10);
+        //    Assert.AreEqual(0.51, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloTwoPostitionVarNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(10.0, 10.0);
+        //    Assert.AreEqual(1, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloTwoDiffPostitionVarNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(10.1, 10.1);
+        //    Assert.AreEqual(1.0201, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloPostitionNumberWithZero()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(10, 0);
+        //    Assert.AreEqual(0, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloNegativeWholeNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(-10, 10);
+        //    Assert.AreEqual(-1, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloDiffNegativeWholeNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(-5, 10);
+        //    Assert.AreEqual(-0.5, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloNegativeVarNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(-5.0, 10);
+        //    Assert.AreEqual(-0.5, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloDiffNegativeVarNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(-5.1, 10);
+        //    Assert.AreEqual(-0.51, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloTwoNegativeVarNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(-10.0, 10.0);
+        //    Assert.AreEqual(-1, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloTwoDiffNegativeVarNumber()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(-10.1, 10.1);
+        //    Assert.AreEqual(-1.0201, result);
+        //}
+
+        //[TestMethod]
+        //public void TestModuloNegativeNumberWithZero()
+        //{
+        //    Calculator obj = new Calculator();
+        //    var result = obj.Modulo(-5, 0);
+        //    Assert.AreEqual(0, result);
+        //}
+        
         #endregion
 
         #region Test Pie
