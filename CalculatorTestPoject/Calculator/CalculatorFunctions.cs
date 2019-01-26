@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculatorFunctions
 {
@@ -27,21 +22,16 @@ namespace CalculatorFunctions
         public void DivideByZero(double number1, double number2)
         {
             if (number2 == 0)
-            {
                 throw new ArgumentNullException(nameof(number2));
-            }
 
-            else
-            {
-                Console.WriteLine(number1 / number2);
-            }
-        
+            Console.WriteLine(number1 / number2);
         }
 
-        public decimal Multiply(double number1, double number2)
+        public double Multiply(double number1, double number2)
         {
-            decimal sum = Convert.ToDecimal(number1 * number2);
-            return sum;
+            //decimal sum = Convert.ToDecimal(number1 * number2);
+            //return sum;
+            return number1 * number2;
         }
 
         public double Modulo(double number1, double number2)
