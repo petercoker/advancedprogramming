@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorTestPoject", "CalculatorTestPoject\CalculatorTestPoject.csproj", "{73C88FF6-7B3B-486A-990A-4BAF327AB84C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.UnitTests", "CalculatorTestPoject\Calculator.UnitTests.csproj", "{73C88FF6-7B3B-486A-990A-4BAF327AB84C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorFunctions", "Calculator\CalculatorFunctions.csproj", "{E3292500-DED7-48CD-8A83-851735210666}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Calculator.csproj", "{E3292500-DED7-48CD-8A83-851735210666}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

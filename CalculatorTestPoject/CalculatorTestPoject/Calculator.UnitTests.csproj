@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Calculator\CalculatorFunctions.csproj">
+    <ProjectReference Include="..\Calculator\Calculator.csproj">
       <Project>{e3292500-ded7-48cd-8a83-851735210666}</Project>
-      <Name>CalculatorFunctions</Name>
+      <Name>Calculator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
