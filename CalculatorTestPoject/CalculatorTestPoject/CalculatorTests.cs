@@ -201,7 +201,7 @@ namespace CalculatorTestPoject
         }
 
         [TestMethod]
-        [DataTestMethod]
+        [DataTestMethod]  
         [Ignore("Check test")]
         [DataRow(10.1, 10.1, -102.01, DisplayName = "Multiply positive double numbers with value")]
         [DataRow(-10.1, -10.1, 102.01, DisplayName = "Multiply negative numbers with value")]
@@ -213,6 +213,7 @@ namespace CalculatorTestPoject
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+
 
         #endregion
 
