@@ -98,53 +98,6 @@ namespace CalculatorTestPoject
 
         #endregion
 
-        #region Test Multiply
-        
-        [TestMethod]
-        [DataTestMethod]
-        [DataRow(5, 0.0, 0, DisplayName = "Multiply positive whole number to double number")]
-        [DataRow(-10.0, 0.0, 0, DisplayName = "Multiply negative double number to positive double number")]
-        [DataRow(0, 10, 0, DisplayName = "Multiply positive number to zero")]
-        [DataRow(-5, 0, 0, DisplayName = "Multiply negative number with zero")]
-        [DataRow(10.0, 0, 0, DisplayName = "Multiply double number to zero")]
-        [DataRow(5.1, 10, 51, DisplayName = "Multiply positive double number with value to whole number")]
-        [DataRow(5.0, 10, 50, DisplayName = "Multiply positive double number to whole number ")]
-        [DataRow(5, 10, 50, DisplayName = "Multiply positive numbers that are different ")]
-        [DataRow(10, 10, 100, DisplayName = "Multiply positive numbers that are the same")]
-        [DataRow(10.0, 10.0, 100, DisplayName = "Multiply positive double numbers")]
-
-        [DataRow(10.1, 10.1, -102.01, DisplayName = "Multiply positive double numbers with value")]
-
-        [Ignore("Check test")]
-        [DataRow(-10.1, -10.1, 102.01, DisplayName = "Multiply negative numbers with value")]
-        public void Multiply_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
-        {
-            // Act
-            var actualResult = _calculator.Multiply(a, b);
-
-            // Assert
-            Assert.AreEqual(expectedResult, actualResult, 102.1 );
-        }
-
-        [TestMethod]
-        [DataTestMethod]
-        [DataRow(-10, 10, -100, DisplayName = "Multiply negative number to positive number that are the same")]
-        [DataRow(-5, 10, -50, DisplayName = "Multiply negative number to positive number")]
-        [DataRow(-5.0, 10, -50, DisplayName = "Multiply negative double number to positive whole number")]
-        [DataRow(-5.1, 10, -51, DisplayName = "Multiply negative double number with value to positive whole number")]
-        public void Multiply_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
-        {
-            // Act
-            var actualResult = _calculator.Multiply(a, b);
-
-            // Assert
-            Assert.AreEqual(expectedResult, actualResult);
-
-        }
-
-
-        #endregion
-
         #region Test Divide
 
         [TestMethod]
@@ -200,6 +153,65 @@ namespace CalculatorTestPoject
                 Assert.AreEqual("\aCan not divide by 0", exception.Message);
                 throw;
             }
+        }
+
+        #endregion
+       
+        #region Test Multiply
+        
+        [TestMethod]
+        [DataTestMethod]
+        [DataRow(5, 0.0, 0, DisplayName = "Multiply positive whole number to double number")]
+        [DataRow(-10.0, 0.0, 0, DisplayName = "Multiply negative double number to positive double number")]
+        [DataRow(0, 10, 0, DisplayName = "Multiply positive number to zero")]
+        [DataRow(-5, 0, 0, DisplayName = "Multiply negative number with zero")]
+        [DataRow(10.0, 0, 0, DisplayName = "Multiply double number to zero")]
+        [DataRow(5.1, 10, 51, DisplayName = "Multiply positive double number with value to whole number")]
+        [DataRow(5.0, 10, 50, DisplayName = "Multiply positive double number to whole number ")]
+        [DataRow(5, 10, 50, DisplayName = "Multiply positive numbers that are different ")]
+        [DataRow(10, 10, 100, DisplayName = "Multiply positive numbers that are the same")]
+        [DataRow(10.0, 10.0, 100, DisplayName = "Multiply positive double numbers")]
+
+
+        [Ignore("Check test")]
+        [DataRow(10.1, 10.1, -102.01, DisplayName = "Multiply positive double numbers with value")]
+        [DataRow(-10.1, -10.1, 102.01, DisplayName = "Multiply negative numbers with value")]
+        public void Multiply_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
+        {
+            // Act
+            var actualResult = _calculator.Multiply(a, b);
+
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        [DataTestMethod]
+        [DataRow(-10, 10, -100, DisplayName = "Multiply negative number to positive number that are the same")]
+        [DataRow(-5, 10, -50, DisplayName = "Multiply negative number to positive number")]
+        [DataRow(-5.0, 10, -50, DisplayName = "Multiply negative double number to positive whole number")]
+        [DataRow(-5.1, 10, -51, DisplayName = "Multiply negative double number with value to positive whole number")]
+        public void Multiply_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
+        {
+            // Act
+            var actualResult = _calculator.Multiply(a, b);
+
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        [DataTestMethod]
+        [Ignore("Check test")]
+        [DataRow(10.1, 10.1, -102.01, DisplayName = "Multiply positive double numbers with value")]
+        [DataRow(-10.1, -10.1, 102.01, DisplayName = "Multiply negative numbers with value")]
+        public void Multiply_UserMultiplyTwoNonWholeNumbers_ReturnsNegativeNumber(double a, double b, double expectedResult)
+        {
+            // Act
+            var actualResult = _calculator.Multiply(a, b);
+
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         #endregion
