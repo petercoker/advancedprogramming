@@ -259,47 +259,6 @@ namespace CalculatorTestPoject
 
         #endregion
 
-        #region Test Pie
-        //[TestMethod]
-        //[DataTestMethod]
-        //[DataRow(-5.0, 10, 5, DisplayName = "Pie negative double number to positive whole number")]
-        //[DataRow(5, 0.0, 5, DisplayName = "Pie positive whole number to double number")]
-        //[DataRow(10.0, 0, 10, DisplayName = "Pie double number to zero")]
-        //[DataRow(10.0, 10.0, 0, DisplayName = "Pie positive double numbers")]
-        //[DataRow(10, 10, 0, DisplayName = "Pie positive numbers that are the same")]
-
-        //[DataRow(-5, 0, -5, DisplayName = "Pie negative number with zero")]
-        //[DataRow(-10.1, -10.1, -20.2, DisplayName = "Pie negative numbers with value")]
-        //[DataRow(-5.1, 10, -15.1, DisplayName = "Pie negative double number with value to positive whole number")]
-        //[DataRow(-5, 10, -15, DisplayName = "Pie negative number to positive number")]
-        //[DataRow(-10, 10, -20, DisplayName = "Pie negative number to positive number that are the same")]
-        //[DataRow(5.1, 10, -4.9, DisplayName = "Pie positive double number with value to whole number")]
-        //[DataRow(5.0, 10, -5, DisplayName = "Pie positive double number to whole number ")]
-        //[DataRow(0, 10, -10, DisplayName = "Pie positive number to zero")]
-        //[DataRow(-10.0, 0.0, -10, DisplayName = "Pie negative double number to positive double number")]
-        //[DataRow(5, 10, -5, DisplayName = "Pie positive numbers that are different ")]
-
-
-        //public void Pie_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
-        //{
-        //    // Act
-        //    var actualResult = _calculator.Pie(a, b);
-
-        //    // Assert
-        //    Assert.AreEqual(expectedResult, actualResult);
-        //}
-
-
-        //public void Pie_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
-        //{
-        //    // Act
-        //    var actualResult = _calculator.Pie(a, b);
-
-        //    // Assert
-        //    Assert.AreEqual(expectedResult, actualResult);
-        //}
-        #endregion
-
         #region Test Square Root
         //[TestMethod]
         //[DataTestMethod]
@@ -343,7 +302,7 @@ namespace CalculatorTestPoject
         //}
 
         #endregion
-
+       
         #region Test Sin
         //[TestMethod]
         //[DataTestMethod]
@@ -467,5 +426,47 @@ namespace CalculatorTestPoject
         //    Assert.AreEqual(expectedResult, actualResult);
         //}
         #endregion
+
+        #region Test Log
+        //[TestMethod]
+        //[DataTestMethod]
+        //[DataRow(-5.0, 10, 5, DisplayName = "Pie negative double number to positive whole number")]
+        //[DataRow(5, 0.0, 5, DisplayName = "Pie positive whole number to double number")]
+        //[DataRow(10.0, 0, 10, DisplayName = "Pie double number to zero")]
+        //[DataRow(10.0, 10.0, 0, DisplayName = "Pie positive double numbers")]
+        //[DataRow(10, 10, 0, DisplayName = "Pie positive numbers that are the same")]
+
+        //[DataRow(-5, 0, -5, DisplayName = "Pie negative number with zero")]
+        //[DataRow(-10.1, -10.1, -20.2, DisplayName = "Pie negative numbers with value")]
+        //[DataRow(-5.1, 10, -15.1, DisplayName = "Pie negative double number with value to positive whole number")]
+        //[DataRow(-5, 10, -15, DisplayName = "Pie negative number to positive number")]
+        //[DataRow(-10, 10, -20, DisplayName = "Pie negative number to positive number that are the same")]
+        //[DataRow(5.1, 10, -4.9, DisplayName = "Pie positive double number with value to whole number")]
+        //[DataRow(5.0, 10, -5, DisplayName = "Pie positive double number to whole number ")]
+        //[DataRow(0, 10, -10, DisplayName = "Pie positive number to zero")]
+        //[DataRow(-10.0, 0.0, -10, DisplayName = "Pie negative double number to positive double number")]
+        //[DataRow(5, 10, -5, DisplayName = "Pie positive numbers that are different ")]
+
+
+        //public void Pie_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var actualResult = _calculator.Pie(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, actualResult);
+        //}
+
+
+        //public void Pie_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var actualResult = _calculator.Pie(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, actualResult);
+        //}
+        #endregion
+
     }
 }

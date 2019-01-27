@@ -34,6 +34,11 @@ namespace CalculatorFunctions
             return Math.Sqrt(number);
         }
 
+        public double GetSin(double number)
+        {
+            return Math.Sin(number);
+        }
+
         public double GetCos(double number)
         {
             return Math.Cos(number);
@@ -49,9 +54,6 @@ namespace CalculatorFunctions
             return Math.Log(number);
         }
 
-        public double GetSin(double number)
-        {
-            return Math.Sin(number);
-        }
+       
     }
 }
