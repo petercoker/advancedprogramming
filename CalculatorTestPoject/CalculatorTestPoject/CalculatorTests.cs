@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel;
 using CalculatorFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-//using NUnit.Framework;
-using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace CalculatorTestPoject
 {
@@ -14,6 +12,7 @@ namespace CalculatorTestPoject
         [TestInitialize]
         public void TestInitialize()
         {
+            // Arrange
             _calculator = new Calculator();
         }
 
@@ -38,10 +37,10 @@ namespace CalculatorTestPoject
         public void Add_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Add(a, b);
+            var actualResult = _calculator.Add(a, b);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
@@ -50,10 +49,10 @@ namespace CalculatorTestPoject
         public void Add_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Add(a, b);
+            var actualResult = _calculator.Add(a, b);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         #endregion
@@ -69,10 +68,10 @@ namespace CalculatorTestPoject
         public void Substact_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Substact(a, b);
+            var actualResult = _calculator.Substact(a, b);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [DataRow(-5.0, 10, -15, DisplayName = "Substact negative double number to positive whole number")]
@@ -89,10 +88,10 @@ namespace CalculatorTestPoject
         public void Substact_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Substact(a, b);
+            var actualResult = _calculator.Substact(a, b);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         #endregion
@@ -111,16 +110,18 @@ namespace CalculatorTestPoject
         [DataRow(5, 10, 50, DisplayName = "Multiply positive numbers that are different ")]
         [DataRow(10, 10, 100, DisplayName = "Multiply positive numbers that are the same")]
         [DataRow(10.0, 10.0, 100, DisplayName = "Multiply positive double numbers")]
-        [Ignore("Check test again")]
+
+        [DataRow(10.1, 10.1, -102.01, DisplayName = "Multiply positive double numbers with value")]
+
+        [Ignore("Check test")]
         [DataRow(-10.1, -10.1, 102.01, DisplayName = "Multiply negative numbers with value")]
-        [DataRow(10.1, 10.1, 102.2, DisplayName = "Multiply positive double numbers with value")]
         public void Multiply_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Multiply(a, b);
+            var actualResult = _calculator.Multiply(a, b);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult, 102.1 );
         }
 
         [TestMethod]
@@ -132,13 +133,13 @@ namespace CalculatorTestPoject
         public void Multiply_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Multiply(a, b);
+            var actualResult = _calculator.Multiply(a, b);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
-        
-        
+
+
         #endregion
 
         #region Test Divide
@@ -159,10 +160,10 @@ namespace CalculatorTestPoject
         public void Divide_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Divide(a, b);
+            var actualResult = _calculator.Divide(a, b);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
@@ -175,10 +176,10 @@ namespace CalculatorTestPoject
         public void Divide_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Divide(a, b);
+            var actualResult = _calculator.Divide(a, b);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         #endregion
@@ -200,10 +201,10 @@ namespace CalculatorTestPoject
         public void Modulo_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Modulo(a, b);
+            var actualResult = _calculator.Modulo(a, b);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
@@ -217,10 +218,10 @@ namespace CalculatorTestPoject
         public void Modulo_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Modulo(a, b);
+            var actualResult = _calculator.Modulo(a, b);
 
             // Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         #endregion
@@ -249,20 +250,20 @@ namespace CalculatorTestPoject
         //public void Pie_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         //{
         //    // Act
-        //    var result = _calculator.Pie(a, b);
+        //    var actualResult = _calculator.Pie(a, b);
 
         //    // Assert
-        //    Assert.AreEqual(expectedResult, result);
+        //    Assert.AreEqual(expectedResult, actualResult);
         //}
 
 
         //public void Pie_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         //{
         //    // Act
-        //    var result = _calculator.Pie(a, b);
+        //    var actualResult = _calculator.Pie(a, b);
 
         //    // Assert
-        //    Assert.AreEqual(expectedResult, result);
+        //    Assert.AreEqual(expectedResult, actualResult);
         //}
         #endregion
 
@@ -292,20 +293,20 @@ namespace CalculatorTestPoject
         //public void SquareRoot_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         //{
         //    // Act
-        //    var result = _calculator.SquareRoot(a, b);
+        //    var actualResult = _calculator.SquareRoot(a, b);
 
         //    // Assert
-        //    Assert.AreEqual(expectedResult, result);
+        //    Assert.AreEqual(expectedResult, actualResult);
         //}
 
 
         //public void SquareRoot_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         //{
         //    // Act
-        //    var result = _calculator.SquareRoot(a, b);
+        //    var actualResult = _calculator.SquareRoot(a, b);
 
         //    // Assert
-        //    Assert.AreEqual(expectedResult, result);
+        //    Assert.AreEqual(expectedResult, actualResult);
         //}
 
         #endregion
@@ -335,20 +336,20 @@ namespace CalculatorTestPoject
         //public void Sin_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         //{
         //    // Act
-        //    var result = _calculator.Sin(a, b);
+        //    var actualResult = _calculator.Sin(a, b);
 
         //    // Assert
-        //    Assert.AreEqual(expectedResult, result);
+        //    Assert.AreEqual(expectedResult, actualResult);
         //}
 
 
         //public void Sin_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         //{
         //    // Act
-        //    var result = _calculator.Sin(a, b);
+        //    var actualResult = _calculator.Sin(a, b);
 
         //    // Assert
-        //    Assert.AreEqual(expectedResult, result);
+        //    Assert.AreEqual(expectedResult, actualResult);
         //}
         #endregion
 
@@ -375,20 +376,20 @@ namespace CalculatorTestPoject
         //public void Cos_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         //{
         //    // Act
-        //    var result = _calculator.Cos(a, b);
+        //    var actualResult = _calculator.Cos(a, b);
 
         //    // Assert
-        //    Assert.AreEqual(expectedResult, result);
+        //    Assert.AreEqual(expectedResult, actualResult);
         //}
 
 
         //public void Cos_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         //{
         //    // Act
-        //    var result = _calculator.Cos(a, b);
+        //    var actualResult = _calculator.Cos(a, b);
 
         //    // Assert
-        //    Assert.AreEqual(expectedResult, result);
+        //    Assert.AreEqual(expectedResult, actualResult);
         //}
         #endregion
 
@@ -417,20 +418,20 @@ namespace CalculatorTestPoject
         //public void Tan_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         //{
         //    // Act
-        //    var result = _calculator.Tan(a, b);
+        //    var actualResult = _calculator.Tan(a, b);
 
         //    // Assert
-        //    Assert.AreEqual(expectedResult, result);
+        //    Assert.AreEqual(expectedResult, actualResult);
         //}
 
 
         //public void Tan_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         //{
         //    // Act
-        //    var result = _calculator.Tan(a, b);
+        //    var actualResult = _calculator.Tan(a, b);
 
         //    // Assert
-        //    Assert.AreEqual(expectedResult, result);
+        //    Assert.AreEqual(expectedResult, actualResult);
         //}
         #endregion
     }
