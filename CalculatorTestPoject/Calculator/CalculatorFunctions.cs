@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace CalculatorFunctions
 {
@@ -31,7 +32,7 @@ namespace CalculatorFunctions
 
         public double GetSquareRoot(double number)
         {
-            return Math.Sqrt(number);
+            return (number < -0.0 || number < 0) ? throw new Exception("\aNot a number") : Math.Sqrt(number);
         }
 
         public double GetSin(double number)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using CalculatorFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -260,49 +261,42 @@ namespace CalculatorTestPoject
         #endregion
 
         #region Test Square Root
-        //[TestMethod]
-        //[DataTestMethod]
-        //[DataRow(-5.0, 10, 5, DisplayName = "Square Root negative double number to positive whole number")]
-        //[DataRow(5, 0.0, 5, DisplayName = "Square Root positive whole number to double number")]
-        //[DataRow(10.0, 0, 10, DisplayName = "Square Root double number to zero")]
-        //[DataRow(10.0, 10.0, 0, DisplayName = "Square Root positive double numbers")]
-        //[DataRow(10, 10, 0, DisplayName = "Square Root positive numbers that are the same")]
+        [TestMethod]
+        [DataTestMethod]
+        [DataRow(5.0, 2.23606797749979, DisplayName = "Square Root different positive double number with no value")]
+        [DataRow(0, 0, DisplayName = "Square Root positive zero whole number")]
+        [DataRow(5, 2.23606797749979, DisplayName = "Square Root different positive number")]
+        [DataRow(0.0, 0, DisplayName = "Square Root positive zero double number with no value")]
+        [Ignore]
+        [DataRow(10, 3.16227766016838, DisplayName = "Square Root positive whole number")]
+        [DataRow(5.1, 2.25831795812724, DisplayName = "Square Root positive double number with value")]
+        [DataRow(10.0, 3.16227766016838, DisplayName = "Square Root postive double number with no zero")]
+        public void SquareRoot_WhenCalled_ReturnsPositiveNumber(double a, double expectedResult)
+        {
+            // Act
+            var actualResult = _calculator.GetSquareRoot(a);
 
-        //[DataRow(-5, 0, -5, DisplayName = "Square Root negative number with zero")]
-        //[DataRow(-10.1, -10.1, -20.2, DisplayName = "Square Root negative numbers with value")]
-        //[DataRow(-5.1, 10, -15.1, DisplayName = "Square Root negative double number with value to positive whole number")]
-        //[DataRow(-5, 10, -15, DisplayName = "Square Root negative number to positive number")]
-        //[DataRow(-10, 10, -20, DisplayName = "Square Root negative number to positive number that are the same")]
-        //[DataRow(5.1, 10, -4.9, DisplayName = "Square Root positive double number with value to whole number")]
-        //[DataRow(5.0, 10, -5, DisplayName = "Square Root positive double number to whole number ")]
-        //[DataRow(0, 10, -10, DisplayName = "Square Root positive number to zero")]
-        //[DataRow(-10.0, 0.0, -10, DisplayName = "Square Root negative double number to positive double number")]
-        //[DataRow(5, 10, -5, DisplayName = "Square Root positive numbers that are different ")]
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
 
-
-
-
-        //public void SquareRoot_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
-        //{
-        //    // Act
-        //    var actualResult = _calculator.SquareRoot(a, b);
-
-        //    // Assert
-        //    Assert.AreEqual(expectedResult, actualResult);
-        //}
-
-
-        //public void SquareRoot_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
-        //{
-        //    // Act
-        //    var actualResult = _calculator.SquareRoot(a, b);
-
-        //    // Assert
-        //    Assert.AreEqual(expectedResult, actualResult);
-        //}
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        [DataTestMethod]
+        [DataRow(-5.0, DisplayName = "Square Root negative double number with no value")]
+        [DataRow(-10.1, DisplayName = "Square Root negative double number with value")]
+        [DataRow(-5.1, DisplayName = "Square Root different negative double number with value")]
+        [DataRow(-5, DisplayName = "Square Root negative whole number")]
+        [DataRow(-10, DisplayName = "Square Root different negative number")]
+        [DataRow(-10.0, DisplayName = "Square Root negative double number with no value")]
+        public void Divide_UserGetSquareOfNegativeNumber_ThrowsException(double a)
+        {
+            // Act
+            new Calculator().GetSquareRoot(a);
+        }
 
         #endregion
-       
+
         #region Test Sin
         //[TestMethod]
         //[DataTestMethod]
