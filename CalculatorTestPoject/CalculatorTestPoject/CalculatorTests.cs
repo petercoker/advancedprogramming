@@ -1,4 +1,5 @@
-﻿using CalculatorFunctions;
+﻿using System.ComponentModel;
+using CalculatorFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 //using NUnit.Framework;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
@@ -8,157 +9,51 @@ namespace CalculatorTestPoject
     [TestClass]
     public class CalculatorTests
     {
-        private Calculator _calculator = new Calculator();
+        private Calculator _calculator;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            _calculator = new Calculator();
+        }
 
         #region Test Add
-
-        public void Add_UserAddPositiveNumber_ReturnsPositiveNumber()
+        
+        [TestMethod]
+        [DataTestMethod]
+        [DataRow(-10.1, -10.1, -20.2, DisplayName = "Add negative numbers with value")]
+        [DataRow(-10.0, 10.0, 0, DisplayName = "Add negative double number to positive double number")]
+        [DataRow(-5.1, 10, 4.9, DisplayName = "Add negative double number with value to positive whole number")]
+        [DataRow(-5.0, 10, 5, DisplayName = "Add negative double number to positive whole number")]
+        [DataRow(-5, 10, 5, DisplayName = "Add negative number to positive number")]
+        [DataRow(-10, 10, 0, DisplayName = "Add negative number to positive number that are the same")]
+        [DataRow(10.0, 0, 10, DisplayName = "Add double number to zero")]
+        [DataRow(0, 10, 10, DisplayName = "Add positive number to zero")]
+        [DataRow(10.0, 10.0, 20, DisplayName = "Add positive double numbers")]
+        [DataRow(5, 0.0, 5, DisplayName = "Add positive whole number to double number")]
+        [DataRow(5.1, 10, 15.1, DisplayName = "Add positive double number with value to whole number")]
+        [DataRow(5.0, 10, 15, DisplayName = "Add positive double number to whole number ")]
+        [DataRow(5, 10, 15, DisplayName = "Add positive numbers that are different ")]
+        [DataRow(10, 10, 20, DisplayName = "Add positive numbers that are the same")]
+        public void Add_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Add(10, 10);
+            var result = _calculator.Add(a, b);
 
             // Assert
-            Assert.AreEqual(20, result);
+            Assert.AreEqual(expectedResult, result);
         }
 
         [TestMethod]
-        public void Add_UserAddDiffPositiveNumber_ReturnsPositiveNumber()
+        [DataTestMethod]
+        [DataRow(-5, 0, -5, DisplayName = "Add negative number with zero")]
+        public void Add_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Add(5, 10);
+            var result = _calculator.Add(a, b);
 
             // Assert
-            Assert.AreEqual(15, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddDoublePositiveNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(5.0, 10);
-
-            // Assert
-            Assert.AreEqual(15, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddDiffDoublePositiveNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(5.1, 10);
-
-            // Assert
-            Assert.AreEqual(15.1, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddDoublePositiveNumberZero_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(10.0, 10.0);
-
-            // Assert
-            Assert.AreEqual(20, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddTwoDiffDoublePositiveNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(10.10, 10.10);
-
-            // Assert
-            Assert.AreEqual(20.2, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddPositiveNumberZeroFirst_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(0, 10);
-
-            // Assert
-            Assert.AreEqual(10, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddPositiveNumberZero_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(10.0, 0);
-
-            // Assert
-            Assert.AreEqual(10, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddNegativeNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(-10, 10);
-
-            // Assert
-            Assert.AreEqual(0, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddDiffNegativeNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(-5, 10);
-
-            // Assert
-            Assert.AreEqual(5, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddDoubleNegativeNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(-5.0, 10);
-
-            // Assert
-            Assert.AreEqual(5, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddDiffDoubleNegativeNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(-5.1, 10);
-
-            // Assert
-            Assert.AreEqual(4.9, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddDoubleNegativeNumberZero_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(-10.0, 10.0);
-
-            // Assert
-            Assert.AreEqual(0, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddDiffTwoDoubleNegativeNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Add(-10.1, 10.1);
-
-            // Assert
-            Assert.AreEqual(0, result);
-        }
-
-        [TestMethod]
-        public void Add_UserAddDiffNegativeNumberWithZero_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Add(-5, 0);
-
-            // Assert
-            Assert.AreEqual(-5, result);
+            Assert.AreEqual(expectedResult, result);
         }
 
         #endregion
@@ -166,580 +61,377 @@ namespace CalculatorTestPoject
         #region Test Substact
 
         [TestMethod]
-        public void Substact_UserSubstactPositiveNumber_ReturnsPositiveNumber()
+        [DataTestMethod]
+        [DataRow(5, 0.0, 5, DisplayName = "Substact positive whole number to double number")]
+        [DataRow(10.0, 0, 10, DisplayName = "Substact double number to zero")]
+        [DataRow(10.0, 10.0, 0, DisplayName = "Substact positive double numbers")]
+        [DataRow(10, 10, 0, DisplayName = "Substact positive numbers that are the same")]
+        public void Substact_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Substact(10, 10);
+            var result = _calculator.Substact(a, b);
 
             // Assert
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(expectedResult, result);
         }
 
-        [TestMethod]
-        public void Substact_UserSubstactDiffPositiveNumber_ReturnsNegativeNumber()
+        [DataRow(-5.0, 10, -15, DisplayName = "Substact negative double number to positive whole number")]
+        [DataRow(-5, 0, -5, DisplayName = "Substact negative number with zero")]
+        [DataRow(-10.1, -10.1, -20.2, DisplayName = "Substact negative numbers with value")]
+        [DataRow(-5.1, 10, -15.1, DisplayName = "Substact negative double number with value to positive whole number")]
+        [DataRow(-5, 10, -15, DisplayName = "Substact negative number to positive number")]
+        [DataRow(-10, 10, -20, DisplayName = "Substact negative number to positive number that are the same")]
+        [DataRow(5.1, 10, -4.9, DisplayName = "Substact positive double number with value to whole number")]
+        [DataRow(5.0, 10, -5, DisplayName = "Substact positive double number to whole number ")]
+        [DataRow(0, 10, -10, DisplayName = "Substact positive number to zero")]
+        [DataRow(-10.0, 0.0, -10, DisplayName = "Substact negative double number to positive double number")]
+        [DataRow(5, 10, -5, DisplayName = "Substact positive numbers that are different ")]
+        public void Substact_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Substact(5, 10);
+            var result = _calculator.Substact(a, b);
 
             // Assert
-            Assert.AreEqual(-5, result);
-        }
-
-
-        [TestMethod]
-        public void Substact_UserSubstactTwoDiffDoublePositiveNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Substact(10.10, 10.10);
-
-            // Assert
-            Assert.AreEqual(0, result);
-        }
-
-        [TestMethod]
-        public void Substact_UserSubstactNegativeNumberWithZeroDouble_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Substact(-10, 0.0);
-
-            // Assert
-            Assert.AreEqual(-10, result);
-        }
-
-        [TestMethod]
-        public void Substact_UserSubstactPositiveNumberZeroFirst_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Substact(0, 10);
-
-            // Assert
-            Assert.AreEqual(-10, result);
-        }
-
-        [TestMethod]
-        public void Substact_UserSubstactPositiveNumberZero_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Substact(10.0, 0);
-
-            // Assert
-            Assert.AreEqual(10, result);
-        }
-
-        [TestMethod]
-        public void Substact_UserSubstactDoublePositiveNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Substact(5.0, 10);
-
-            // Assert
-            Assert.AreEqual(-5, result);
-        }
-
-        [TestMethod]
-        public void Substact_UserSubstactDiffDoublePositiveNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Substact(5.1, 10);
-
-            // Assert
-            Assert.AreEqual(-4.9, result);
-        }
-
-        [TestMethod]
-        public void Substact_UserSubstactDoublePositiveNumberZero_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Substact(10.0, 10.0);
-
-            // Assert
-            Assert.AreEqual(0, result);
-        }
-
-        [TestMethod]
-        public void Substact_UserSubstactPositiveDoubleNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Substact(5, 0.0);
-
-            // Assert
-            Assert.AreEqual(5, result);
+            Assert.AreEqual(expectedResult, result);
         }
 
         #endregion
 
         #region Test Multiply
-
+        
         [TestMethod]
-        public void Multiply_UserMultiplyPositiveNumber_ReturnsPositiveNumber()
+        [DataTestMethod]
+        [DataRow(5, 0.0, 0, DisplayName = "Multiply positive whole number to double number")]
+        [DataRow(-10.0, 0.0, 0, DisplayName = "Multiply negative double number to positive double number")]
+        [DataRow(0, 10, 0, DisplayName = "Multiply positive number to zero")]
+        [DataRow(-5, 0, 0, DisplayName = "Multiply negative number with zero")]
+        [DataRow(10.0, 0, 0, DisplayName = "Multiply double number to zero")]
+        [DataRow(5.1, 10, 51, DisplayName = "Multiply positive double number with value to whole number")]
+        [DataRow(5.0, 10, 50, DisplayName = "Multiply positive double number to whole number ")]
+        [DataRow(5, 10, 50, DisplayName = "Multiply positive numbers that are different ")]
+        [DataRow(10, 10, 100, DisplayName = "Multiply positive numbers that are the same")]
+        [DataRow(10.0, 10.0, 100, DisplayName = "Multiply positive double numbers")]
+        [Ignore("Check test again")]
+        [DataRow(-10.1, -10.1, 102.01, DisplayName = "Multiply negative numbers with value")]
+        [DataRow(10.1, 10.1, 102.2, DisplayName = "Multiply positive double numbers with value")]
+        public void Multiply_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Multiply(10, 10);
+            var result = _calculator.Multiply(a, b);
 
             // Assert
-            Assert.AreEqual(100, result);
+            Assert.AreEqual(expectedResult, result);
         }
 
         [TestMethod]
-        public void Multiply_UserMultiplyDiffPositiveNumber_ReturnsPositiveNumber()
+        [DataTestMethod]
+        [DataRow(-10, 10, -100, DisplayName = "Multiply negative number to positive number that are the same")]
+        [DataRow(-5, 10, -50, DisplayName = "Multiply negative number to positive number")]
+        [DataRow(-5.0, 10, -50, DisplayName = "Multiply negative double number to positive whole number")]
+        [DataRow(-5.1, 10, -51, DisplayName = "Multiply negative double number with value to positive whole number")]
+        public void Multiply_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Multiply(5, 10);
+            var result = _calculator.Multiply(a, b);
 
             // Assert
-            Assert.AreEqual(50, result);
+            Assert.AreEqual(expectedResult, result);
         }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDoublePositiveNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Multiply(5.0, 10);
-
-            // Assert
-            Assert.AreEqual(50, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDiffDoublePositiveNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Multiply(5.1, 10);
-
-            // Assert
-            Assert.AreEqual(51, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDoublePositiveNumberZero_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Multiply(10.0, 10.0);
-
-            // Assert
-            Assert.AreEqual(100, result);
-        }
-
-        //[TestMethod]
-        //public void Multiply_UserMultiplyTwoDiffDoublePositiveNumber_ReturnsPositiveNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Multiply(10.10, 10.10);
-
-        //    // Assert
-        //    Assert.Equals(102.01, result);
-        //}
-
-        [TestMethod]
-        public void Multiply_UserMultiplyPositiveNumberZero_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Multiply(10, 0);
-
-            // Assert
-            Assert.AreEqual(0, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Multiply(-10, 10);
-
-            // Assert
-            Assert.AreEqual(-100, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDiffNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Multiply(-5, 10);
-
-            // Assert
-            Assert.AreEqual(-50, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDoubleNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Multiply(-5.0, 10);
-
-            // Assert
-            Assert.AreEqual(-50, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDiffDoubleNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Multiply(-5.1, 10);
-
-            // Assert
-            Assert.AreEqual(-51, result);
-        }
-
-        [TestMethod]
-        public void Multiply_UserMultiplyDoubleNegativeNumberZero_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Multiply(-10.0, 10.0);
-
-            // Assert
-            Assert.AreEqual(-100, result);
-        }
-
-        //[TestMethod]
-        //public void Multiply_UserMultiplyDiffTwoDoubleNegativeNumber_ReturnsNegativeNumber()
-        //{
-        //    
-        //    
-
-        //    // Act
-        //    var result = _calculator.Multiply(10.1, 10.1);
-
-        //    // Assert
-        //    Assert.AreEqual(102.01, result);
-        //}
-
-        [TestMethod]
-        public void Multiply_UserMultiplyNegativeNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Multiply(-5, 0);
-
-            // Assert
-            Assert.AreEqual(0, result);
-        }
-
+        
+        
         #endregion
 
         #region Test Divide
 
         [TestMethod]
-        public void Divide_UserDividePositiveNumber_ReturnsPositiveNumber()
+        [DataTestMethod]
+        [DataRow(0, 10, 0, DisplayName = "Divide positive number to zero")]
+        [DataRow(10.1, 10.1, 1, DisplayName = "Divide negative numbers with value")]
+        [DataRow(10.0, 10.0, 1, DisplayName = "Divide positive double numbers")]
+        [DataRow(5.1, 10, 0.51, DisplayName = "Divide positive double number with value to whole number")]
+        [DataRow(5.0, 10, 0.5, DisplayName = "Divide positive double number to whole number ")]
+        [DataRow(5, 10, 0.5, DisplayName = "Divide positive numbers that are different ")]
+        [DataRow(10, 10, 1, DisplayName = "Divide positive numbers that are the same")]
+        [Ignore("Create expection for this")]
+        [DataRow(5, 0.0, 5, DisplayName = "Divide positive whole number to double number")]
+        [DataRow(-5, 0, -5, DisplayName = "Divide negative number with zero")]
+        [DataRow(10.0, 0, 10, DisplayName = "Divide double number to zero")]
+        public void Divide_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Divide(10, 10);
+            var result = _calculator.Divide(a, b);
 
             // Assert
-            Assert.AreEqual(1, result);
+            Assert.AreEqual(expectedResult, result);
         }
 
         [TestMethod]
-        public void Divide_UserDivideDiffPositiveNumber_ReturnsPositiveNumber()
+        [DataTestMethod]
+        [DataRow(-10.1, 10.1, -1, DisplayName = "Divide negative double number to positive double number with value")]
+        [DataRow(-5.1, 10, -0.51, DisplayName = "Divide negative double number with value to positive whole number")]
+        [DataRow(-5.0, 10, -0.5, DisplayName = "Divide negative double number to positive whole number")]
+        [DataRow(-5, 10, -0.5, DisplayName = "Divide negative number to positive number")]
+        [DataRow(-10, 10, -1, DisplayName = "Divide negative number to positive number that are the same")]
+        public void Divide_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
         {
             // Act
-            var result = _calculator.Divide(5, 10);
+            var result = _calculator.Divide(a, b);
 
             // Assert
-            Assert.AreEqual(0.5, result);
+            Assert.AreEqual(expectedResult, result);
         }
-
-        [TestMethod]
-        public void Divide_UserDivideDoublePositiveNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Divide(5.0, 10);
-
-            // Assert
-            Assert.AreEqual(0.5, result);
-        }
-
-        [TestMethod]
-        public void Divide_UserDivideDiffDoublePositiveNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Divide(5.1, 10);
-
-            // Assert
-            Assert.AreEqual(0.51, result);
-        }
-
-        [TestMethod]
-        public void Divide_UserDivideDoublePositiveNumberZero_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Divide(10.0, 10.0);
-
-            // Assert
-            Assert.AreEqual(1, result);
-        }
-
-        [TestMethod] //Check
-        public void Divide_UserDivideTwoDiffDoublePositiveNumber_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Divide(10.10, 10.10);
-
-            // Assert
-            Assert.AreEqual(1, result);
-        }
-
-        [TestMethod]
-        public void Divide_UserDividePositiveNumberZeroFirst_ReturnsPositiveNumber()
-        {
-            // Act
-            var result = _calculator.Divide(0, 10);
-
-            // Assert
-            Assert.AreEqual(0, result);
-        }
-
-        //[TestMethod]
-        //public void Divide_UserDividePositiveNumberZero_ReturnsPositiveNumber()
-        //{
-        //    
-        //    
-
-        //    // Act
-        //    var result = _calculator.DivideByZero(10.0, 0);
-
-        //    // Assert
-        //    Assert.Fail("Can not divide by 0", result);
-        //    Assert.ThrowsException<string>()
-        //    Assert.AreEqual(10, result);
-        //    Return //Can not divide by 0
-        //}
-
-        [TestMethod]
-        public void Divide_UserDivideNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Divide(-10, 10);
-
-            // Assert
-            Assert.AreEqual(-1, result);
-        }
-
-        [TestMethod]
-        public void Divide_UserDivideDiffNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Divide(-5, 10);
-
-            // Assert
-            Assert.AreEqual(-0.5, result);
-        }
-
-        [TestMethod]
-        public void Divide_UserDivideDoubleNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Divide(-5.0, 10);
-
-            // Assert
-            Assert.AreEqual(-0.5, result);
-        }
-
-        [TestMethod]
-        public void Divide_UserDivideDiffDoubleNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Divide(-5.1, 10);
-
-            // Assert
-            Assert.AreEqual(-0.51, result);
-        }
-
-        [TestMethod]
-        public void Divide_UserDivideDoubleNegativeNumberZero_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Divide(-10.0, 10.0);
-
-            // Assert
-            Assert.AreEqual(-1, result);
-        }
-
-        [TestMethod]
-        public void Divide_UserDivideDiffTwoDoubleNegativeNumber_ReturnsNegativeNumber()
-        {
-            // Act
-            var result = _calculator.Divide(-10.1, 10.1);
-
-            // Assert
-            Assert.AreEqual(-1, result);
-        }
-
-        //[TestMethod]
-        //public void Divide_UserDivideNegativeNumber_ReturnsPositiveNumber()
-        //{
-        //    
-        //    
-
-        //    // Act
-        //    var result = _calculator.Divide(-5, 0);
-
-        //    // Assert
-        //    Assert.AreEqual(-5, result);
-        //}
 
         #endregion
 
         #region Test Modulo 
+        [TestMethod]
+        [DataTestMethod]
+        [Ignore("Pass test")]
+        [DataRow(10, 10, 1, DisplayName = "Modulo positive numbers that are the same")]
+        [DataRow(5, 0.0, 0, DisplayName = "Modulo positive whole number to double number")]
+        [DataRow(10.0, 0, 0, DisplayName = "Modulo double number to zero")]
+        [DataRow(-5, 0, 0, DisplayName = "Modulo negative number with zero")]
+        [DataRow(10, 0, 0, DisplayName = "Modulo positive number to Zero")]
+        [DataRow(10.1, 10.1, 1.0201, DisplayName = "Modulo negative numbers with value")]
+        [DataRow(10.0, 10.0, 1, DisplayName = "Modulo positive double numbers")]
+        [DataRow(5.1, 10, 0.51, DisplayName = "Modulo positive double number with value to whole number")]
+        [DataRow(5.0, 10, 0.5, DisplayName = "Modulo positive double number to whole number ")]
+        [DataRow(5, 10, 0.5, DisplayName = "Modulo positive numbers that are different ")]
+        public void Modulo_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
+        {
+            // Act
+            var result = _calculator.Modulo(a, b);
 
-        //[TestMethod]
-        //public void Modulo_UserModuloPositiveNumber_ReturnsPositiveNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(10, 10);
+            // Assert
+            Assert.AreEqual(expectedResult, result);
+        }
 
-        //    // Assert
-        //    Assert.AreEqual(1, result);
-        //}
+        [TestMethod]
+        [DataTestMethod]
+        [Ignore("Pass Test")]
+        [DataRow(-10.1, 10.1, -1.0201, DisplayName = "Modulo negative double number to positive double number with value")]
+        [DataRow(-5.1, 10, -0.51, DisplayName = "Modulo negative double number with value to positive whole number")]
+        [DataRow(-5.0, 10, -0.5, DisplayName = "Modulo negative double number to positive whole number")]
+        [DataRow(-5, 10, -0.5, DisplayName = "Modulo negative number to positive number")]
+        [DataRow(-10, 10, -1, DisplayName = "Modulo negative number to positive number that are the same")]
+        public void Modulo_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
+        {
+            // Act
+            var result = _calculator.Modulo(a, b);
 
-        //[TestMethod]
-        //public void Modulo_UserModuloDiffPositiveNumber_ReturnsPositiveNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(5, 10);
-
-        //    // Assert
-        //    Assert.AreEqual(0.5, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloDoublePositiveNumber_ReturnsPositiveNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(5.0, 10);
-
-        //    // Assert
-        //    Assert.AreEqual(0.5, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloDiffDoublePositiveNumber_ReturnsPositiveNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(5.1, 10);
-
-        //    // Assert
-        //    Assert.AreEqual(0.51, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloDoublePositiveNumberZero_ReturnsPositiveNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(10.0, 10.0);
-
-        //    // Assert
-        //    Assert.AreEqual(1, result);
-        //}
-
-        //[TestMethod] //Check
-        //public void Modulo_UserModuloTwoDiffDoublePositiveNumber_ReturnsPositiveNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(10.10, 10.10);
-
-        //    // Assert
-        //    Assert.AreEqual(1.0201, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloPositiveNumberZero_ReturnsPositiveNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(10, 0);
-
-        //    // Assert
-        //    Assert.AreEqual(0, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloNegativeNumber_ReturnsNegativeNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(-10, 10);
-
-        //    // Assert
-        //    Assert.AreEqual(-1, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloDiffNegativeNumber_ReturnsNegativeNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(-5, 10);
-
-        //    // Assert
-        //    Assert.AreEqual(-0.5, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloDoubleNegativeNumber_ReturnsNegativeNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(-5.0, 10);
-
-        //    // Assert
-        //    Assert.AreEqual(-0.5, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloDiffDoubleNegativeNumber_ReturnsNegativeNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(-5.1, 10);
-
-        //    // Assert
-        //    Assert.AreEqual(-0.51, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloDoubleNegativeNumberZero_ReturnsNegativeNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(-10.0, 10.0);
-
-        //    // Assert
-        //    Assert.AreEqual(-1, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloDiffTwoDoubleNegativeNumber_ReturnsNegativeNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(-10.1, 10.1);
-
-        //    // Assert
-        //    Assert.AreEqual(-1.0201, result);
-        //}
-
-        //[TestMethod]
-        //public void Modulo_UserModuloNegativeNumber_ReturnsPositiveNumber()
-        //{
-        //    // Act
-        //    var result = _calculator.Modulo(-5, 0);
-
-        //    // Assert
-        //    Assert.AreEqual(0, result);
-        //}
+            // Assert
+            Assert.AreEqual(expectedResult, result);
+        }
 
         #endregion
 
         #region Test Pie
+        //[TestMethod]
+        //[DataTestMethod]
+        //[DataRow(-5.0, 10, 5, DisplayName = "Pie negative double number to positive whole number")]
+        //[DataRow(5, 0.0, 5, DisplayName = "Pie positive whole number to double number")]
+        //[DataRow(10.0, 0, 10, DisplayName = "Pie double number to zero")]
+        //[DataRow(10.0, 10.0, 0, DisplayName = "Pie positive double numbers")]
+        //[DataRow(10, 10, 0, DisplayName = "Pie positive numbers that are the same")]
 
+        //[DataRow(-5, 0, -5, DisplayName = "Pie negative number with zero")]
+        //[DataRow(-10.1, -10.1, -20.2, DisplayName = "Pie negative numbers with value")]
+        //[DataRow(-5.1, 10, -15.1, DisplayName = "Pie negative double number with value to positive whole number")]
+        //[DataRow(-5, 10, -15, DisplayName = "Pie negative number to positive number")]
+        //[DataRow(-10, 10, -20, DisplayName = "Pie negative number to positive number that are the same")]
+        //[DataRow(5.1, 10, -4.9, DisplayName = "Pie positive double number with value to whole number")]
+        //[DataRow(5.0, 10, -5, DisplayName = "Pie positive double number to whole number ")]
+        //[DataRow(0, 10, -10, DisplayName = "Pie positive number to zero")]
+        //[DataRow(-10.0, 0.0, -10, DisplayName = "Pie negative double number to positive double number")]
+        //[DataRow(5, 10, -5, DisplayName = "Pie positive numbers that are different ")]
+
+
+        //public void Pie_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var result = _calculator.Pie(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, result);
+        //}
+
+
+        //public void Pie_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var result = _calculator.Pie(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, result);
+        //}
         #endregion
 
         #region Test Square Root
+        //[TestMethod]
+        //[DataTestMethod]
+        //[DataRow(-5.0, 10, 5, DisplayName = "Square Root negative double number to positive whole number")]
+        //[DataRow(5, 0.0, 5, DisplayName = "Square Root positive whole number to double number")]
+        //[DataRow(10.0, 0, 10, DisplayName = "Square Root double number to zero")]
+        //[DataRow(10.0, 10.0, 0, DisplayName = "Square Root positive double numbers")]
+        //[DataRow(10, 10, 0, DisplayName = "Square Root positive numbers that are the same")]
+
+        //[DataRow(-5, 0, -5, DisplayName = "Square Root negative number with zero")]
+        //[DataRow(-10.1, -10.1, -20.2, DisplayName = "Square Root negative numbers with value")]
+        //[DataRow(-5.1, 10, -15.1, DisplayName = "Square Root negative double number with value to positive whole number")]
+        //[DataRow(-5, 10, -15, DisplayName = "Square Root negative number to positive number")]
+        //[DataRow(-10, 10, -20, DisplayName = "Square Root negative number to positive number that are the same")]
+        //[DataRow(5.1, 10, -4.9, DisplayName = "Square Root positive double number with value to whole number")]
+        //[DataRow(5.0, 10, -5, DisplayName = "Square Root positive double number to whole number ")]
+        //[DataRow(0, 10, -10, DisplayName = "Square Root positive number to zero")]
+        //[DataRow(-10.0, 0.0, -10, DisplayName = "Square Root negative double number to positive double number")]
+        //[DataRow(5, 10, -5, DisplayName = "Square Root positive numbers that are different ")]
+
+
+
+
+        //public void SquareRoot_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var result = _calculator.SquareRoot(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, result);
+        //}
+
+
+        //public void SquareRoot_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var result = _calculator.SquareRoot(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, result);
+        //}
 
         #endregion
 
         #region Test Sin
+        //[TestMethod]
+        //[DataTestMethod]
+        //[DataRow(-5.0, 10, 5, DisplayName = "Sin negative double number to positive whole number")]
+        //[DataRow(5, 0.0, 5, DisplayName = "Sin positive whole number to double number")]
+        //[DataRow(10.0, 0, 10, DisplayName = "Sin double number to zero")]
+        //[DataRow(10.0, 10.0, 0, DisplayName = "Sin positive double numbers")]
+        //[DataRow(10, 10, 0, DisplayName = "Sin positive numbers that are the same")]
 
+        //[DataRow(-5, 0, -5, DisplayName = "Sin negative number with zero")]
+        //[DataRow(-10.1, -10.1, -20.2, DisplayName = "Sin negative numbers with value")]
+        //[DataRow(-5.1, 10, -15.1, DisplayName = "Sin negative double number with value to positive whole number")]
+        //[DataRow(-5, 10, -15, DisplayName = "Sin negative number to positive number")]
+        //[DataRow(-10, 10, -20, DisplayName = "Sin negative number to positive number that are the same")]
+        //[DataRow(5.1, 10, -4.9, DisplayName = "Sin positive double number with value to whole number")]
+        //[DataRow(5.0, 10, -5, DisplayName = "Sin positive double number to whole number ")]
+        //[DataRow(0, 10, -10, DisplayName = "Sin positive number to zero")]
+        //[DataRow(-10.0, 0.0, -10, DisplayName = "Sin negative double number to positive double number")]
+        //[DataRow(5, 10, -5, DisplayName = "Sin positive numbers that are different ")]
+
+
+
+        //public void Sin_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var result = _calculator.Sin(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, result);
+        //}
+
+
+        //public void Sin_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var result = _calculator.Sin(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, result);
+        //}
         #endregion
 
         #region Test Cos
+        //[TestMethod]
+        //[DataTestMethod]
+        //[DataRow(-5.0, 10, 5, DisplayName = "Cos negative double number to positive whole number")]
+        //[DataRow(5, 0.0, 5, DisplayName = "Cos positive whole number to double number")]
+        //[DataRow(10.0, 0, 10, DisplayName = "Cos double number to zero")]
+        //[DataRow(10.0, 10.0, 0, DisplayName = "Cos positive double numbers")]
+        //[DataRow(10, 10, 0, DisplayName = "Cos positive numbers that are the same")]
 
+        //[DataRow(-5, 0, -5, DisplayName = "Cos negative number with zero")]
+        //[DataRow(-10.1, -10.1, -20.2, DisplayName = "Cos negative numbers with value")]
+        //[DataRow(-5.1, 10, -15.1, DisplayName = "Cos negative double number with value to positive whole number")]
+        //[DataRow(-5, 10, -15, DisplayName = "Cos negative number to positive number")]
+        //[DataRow(-10, 10, -20, DisplayName = "Cos negative number to positive number that are the same")]
+        //[DataRow(5.1, 10, -4.9, DisplayName = "Cos positive double number with value to whole number")]
+        //[DataRow(5.0, 10, -5, DisplayName = "Cos positive double number to whole number ")]
+        //[DataRow(0, 10, -10, DisplayName = "Cos positive number to zero")]
+        //[DataRow(-10.0, 0.0, -10, DisplayName = "Cos negative double number to positive double number")]
+        //[DataRow(5, 10, -5, DisplayName = "Cos positive numbers that are different ")]
+
+        //public void Cos_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var result = _calculator.Cos(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, result);
+        //}
+
+
+        //public void Cos_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var result = _calculator.Cos(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, result);
+        //}
         #endregion
 
         #region Test Tan
+        //TestMethod]
+        //[DataTestMethod]
+        //[DataRow(-5.0, 10, 5, DisplayName = "Tan negative double number to positive whole number")]
+        //[DataRow(5, 0.0, 5, DisplayName = "Tan positive whole number to double number")]
+        //[DataRow(10.0, 0, 10, DisplayName = "Tan double number to zero")]
+        //[DataRow(10.0, 10.0, 0, DisplayName = "Tan positive double numbers")]
+        //[DataRow(10, 10, 0, DisplayName = "Tan positive numbers that are the same")]
 
+        //[DataRow(-5, 0, -5, DisplayName = "Tan negative number with zero")]
+        //[DataRow(-10.1, -10.1, -20.2, DisplayName = "Tan negative numbers with value")]
+        //[DataRow(-5.1, 10, -15.1, DisplayName = "Tan negative double number with value to positive whole number")]
+        //[DataRow(-5, 10, -15, DisplayName = "Tan negative number to positive number")]
+        //[DataRow(-10, 10, -20, DisplayName = "Tan negative number to positive number that are the same")]
+        //[DataRow(5.1, 10, -4.9, DisplayName = "Tan positive double number with value to whole number")]
+        //[DataRow(5.0, 10, -5, DisplayName = "Tan positive double number to whole number ")]
+        //[DataRow(0, 10, -10, DisplayName = "Tan positive number to zero")]
+        //[DataRow(-10.0, 0.0, -10, DisplayName = "Tan negative double number to positive double number")]
+        //[DataRow(5, 10, -5, DisplayName = "Tan positive numbers that are different ")]
+
+
+
+        //public void Tan_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var result = _calculator.Tan(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, result);
+        //}
+
+
+        //public void Tan_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
+        //{
+        //    // Act
+        //    var result = _calculator.Tan(a, b);
+
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, result);
+        //}
         #endregion
     }
 }
