@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using CalculatorFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -153,10 +154,6 @@ namespace CalculatorTestPoject
         [DataRow(5.0, 10, 0.5, DisplayName = "Divide positive double number to whole number ")]
         [DataRow(5, 10, 0.5, DisplayName = "Divide positive numbers that are different ")]
         [DataRow(10, 10, 1, DisplayName = "Divide positive numbers that are the same")]
-        [Ignore("Create expection for this")]
-        [DataRow(5, 0.0, 5, DisplayName = "Divide positive whole number to double number")]
-        [DataRow(-5, 0, -5, DisplayName = "Divide negative number with zero")]
-        [DataRow(10.0, 0, 10, DisplayName = "Divide double number to zero")]
         public void Divide_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
         {
             // Act
@@ -180,6 +177,18 @@ namespace CalculatorTestPoject
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DivideByZeroException))]
+        [DataTestMethod]
+        [DataRow(5, 0.0, DisplayName = "Divide positive whole number to double number")]
+        [DataRow(-5, 0, DisplayName = "Divide negative number with zero")]
+        [DataRow(10.0, 0, DisplayName = "Divide double number to zero")]
+        public void Divide_UserDivideByZero_ThrowsDivideByZeroException(double a, double b)
+        {
+            // Act
+             _calculator.Divide(a, b);
         }
 
         #endregion
