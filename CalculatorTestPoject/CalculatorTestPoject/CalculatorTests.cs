@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using CalculatorFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -138,6 +139,7 @@ namespace CalculatorTestPoject
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
+
         }
 
 
@@ -187,8 +189,17 @@ namespace CalculatorTestPoject
         [DataRow(10.0, 0, DisplayName = "Divide double number to zero")]
         public void Divide_UserDivideByZero_ThrowsDivideByZeroException(double a, double b)
         {
-            // Act
-             _calculator.Divide(a, b);
+            try
+            {
+                // Act
+                new Calculator().Divide(a, b);
+            }
+            catch (DivideByZeroException exception)
+            {
+                // Assert
+                Assert.AreEqual("\aCan not divide by 0", exception.Message);
+                throw;
+            }
         }
 
         #endregion
