@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Data;
-using System.Runtime.InteropServices;
 
-namespace CalculatorFunctions
+namespace CACalculator
 {
-    public class Calculator
+    public class CalculatorFuncation
     {
-
-        #region Functions
         public double Add(double number1, double number2)
         {
             return number1 + number2;
@@ -22,12 +18,12 @@ namespace CalculatorFunctions
         {
             return (number2 == 0) ? throw new DivideByZeroException("\aCan not divide by 0") : number1 / number2;
         }
-
+        
         public double Multiply(double number1, double number2)
         {
             return number1 * number2;
         }
-
+        
         public double GetSquareRoot(double number)
         {
             return (number < -0.0 || number < 0) ? throw new Exception("\aNot a number") : Math.Sqrt(number);
@@ -62,17 +58,5 @@ namespace CalculatorFunctions
             double sum = Math.Exp(number);
             return sum;
         }
-
-
-        #endregion
-
-        #region Input
-
-        public void GetInput(string value)
-        {
-           
-        }
-
-        #endregion
     }
 }

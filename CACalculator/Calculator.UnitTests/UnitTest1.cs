@@ -1,22 +1,19 @@
-﻿using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.IO;
-using CalculatorFunctions;
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CACalculator;
 
-namespace CalculatorTestPoject
+namespace Calculator.UnitTests
 {
     [TestClass]
     public class CalculatorTests
     {
-        private Calculator _calculator;
+        private CalculatorFuncation _calculator;
 
         [TestInitialize]
         public void TestInitialize()
         {
             // Arrange
-            _calculator = new Calculator();
+            _calculator = new CalculatorFuncation();
         }
 
         #region Test Add
@@ -146,7 +143,7 @@ namespace CalculatorTestPoject
             try
             {
                 // Act
-                new Calculator().Divide(a, b);
+                new CalculatorFuncation().Divide(a, b);
             }
             catch (DivideByZeroException exception)
             {
@@ -252,7 +249,7 @@ namespace CalculatorTestPoject
         public void SquareRoot_UserGetSquareOfNegativeNumber_ThrowsException(double a)
         {
             // Act
-            new Calculator().GetSquareRoot(a);
+            new CalculatorFuncation().GetSquareRoot(a);
         }
 
         #endregion
@@ -417,7 +414,7 @@ namespace CalculatorTestPoject
         public void Tan_WhenCalled_ThrowException(double a)
         {
             // Act
-            new Calculator().GetTan(a);
+            new CalculatorFuncation().GetTan(a);
         }
 
         #endregion
@@ -467,7 +464,7 @@ namespace CalculatorTestPoject
         public void Log_WhenCalled_ThrowException(double a)
         {
             // Act
-            new Calculator().GetLog(a);
+            new CalculatorFuncation().GetLog(a);
         }
 
         #endregion
@@ -517,7 +514,7 @@ namespace CalculatorTestPoject
         public void Exp_WhenCalled_ThrowException(double a)
         {
             // Act
-            new Calculator().GetExp(a);
+            new CalculatorFuncation().GetExp(a);
         }
 
         #endregion
