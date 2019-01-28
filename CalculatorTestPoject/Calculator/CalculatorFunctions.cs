@@ -6,8 +6,8 @@ namespace CalculatorFunctions
 {
     public class Calculator
     {
-
         #region Functions
+
         public double Add(double number1, double number2)
         {
             return number1 + number2;
@@ -25,7 +25,8 @@ namespace CalculatorFunctions
 
         public double Multiply(double number1, double number2)
         {
-            return number1 * number2;
+            double sum = number1 * number2;
+            return sum;
         }
 
         public double GetSquareRoot(double number)
@@ -59,8 +60,8 @@ namespace CalculatorFunctions
 
         public double GetExp(double number)
         {
-            double sum = Math.Exp(number);
-            return sum;
+            return Math.Round(Math.Exp(number));
+            //return (Math.Abs(Math.Exp(number) <= 0.00001) ? true : false;
         }
 
 
