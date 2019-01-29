@@ -239,14 +239,16 @@ namespace CalculatorTestPoject
 
         [TestMethod]
         [DataTestMethod]
-        [Ignore("check")]
-        [DataRow(5.0, -0.958924274663138, DisplayName = "Sin different positive double number with no value")]
         [DataRow(0, 0, DisplayName = "Sin positive zero whole number")]
-        [DataRow(5, 0.08715574274765817355806427083747, DisplayName = "Sin different positive number")]
         [DataRow(0.0, 0, DisplayName = "Sin positive zero double number with no value")]
-        [DataRow(10, 0.17364817766693034885171662676931, DisplayName = "Sin positive whole number")]
-        [DataRow(5.1, 0.08889429686644151920780187046343, DisplayName = "Sin positive double number with value")]
-        [DataRow(10.0, 0.17364817766693034885171662676931, DisplayName = "Sin positive double number with no zero")]
+        [DataRow(10, -1, DisplayName = "Sin positive whole number")]
+        [DataRow(5.1, -1, DisplayName = "Sin positive double number with value")]
+        [DataRow(-5.0, 1, DisplayName = "Sin negative double number with no value")]
+        [DataRow(-10.1, 1, DisplayName = "Sin negative double number with value")]
+        [DataRow(-5.1, 1, DisplayName = "Sin different negative double number with value")]
+        [DataRow(-5, 1, DisplayName = "Sin negative whole number")]
+        [DataRow(-10, 1, DisplayName = "Sin different negative number")]
+        [DataRow(-10.0, 1, DisplayName = "Sin negative double number with no value")]
         public void Sin_WhenCalled_ReturnsPositiveNumber(double a, double expectedResult)
         {
             // Act
@@ -258,13 +260,9 @@ namespace CalculatorTestPoject
 
         [TestMethod]
         [DataTestMethod]
-        [Ignore]
-        [DataRow(-5.0, -0.08715574274765817355806427083747, DisplayName = "Sin negative double number with no value")]
-        [DataRow(-10.1, -0.17536672609198711145598126930508, DisplayName = "Sin negative double number with value")]
-        [DataRow(-5.1, -0.08889429686644151920780187046343, DisplayName = "Sin different negative double number with value")]
-        [DataRow(-5, -0.08889429686644151920780187046343, DisplayName = "Sin negative whole number")]
-        [DataRow(-10, -0.17364817766693034885171662676931, DisplayName = "Sin different negative number")]
-        [DataRow(-10.0, -0.17364817766693034885171662676931, DisplayName = "Sin negative double number with no value")]
+        [DataRow(5, -1, DisplayName = "Sin different positive number")]
+        [DataRow(5.0, -1, DisplayName = "Sin different positive double number with no value")]
+        [DataRow(10.0, -1, DisplayName = "Sin positive double number with no zero")]
         public void Sin_WhenCalled_ReturnsNegativeNumber(double a, double expectedResult)
         {
             // Act
