@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Data;
-using System.Runtime.InteropServices;
 
 namespace CalculatorFunctions
 {
     public class Calculator
     {
+        
         #region Functions
 
         public double Add(double number1, double number2)
@@ -61,19 +60,8 @@ namespace CalculatorFunctions
         public double GetExp(double number)
         {
             return Math.Round(Math.Exp(number));
-            //return (Math.Abs(Math.Exp(number) <= 0.00001) ? true : false;
         }
-
-
         #endregion
-
-        #region Input
-
-        public void GetInput(string value)
-        {
-           
-        }
-
-        #endregion
+        
     }
 }

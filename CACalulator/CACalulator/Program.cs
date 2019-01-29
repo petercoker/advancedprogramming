@@ -7,16 +7,15 @@ namespace testing
     {
         static void Main(string[] args)
         {
-            Calculator myCalculator = new Calculator();
+            Calculator Calculate = new Calculator();
             bool userOption = false;
             double number1, number2, answer;
             string firstNumber, secondNumber;
             string opertator;
 
-            Console.WriteLine("Console Calculator App");
-
             while (!userOption)
             {
+                #region Userinput
                 Console.Write("\nEnter first number: ");
                 firstNumber = Console.ReadLine();
 
@@ -34,6 +33,9 @@ namespace testing
 
                 Console.Write("\n(+, -, *, /, sq = SquareRoot, s = Sin, c = Cos, t = Tan, l = Log, e = Exp)\nSelect an Opertator or \"q\": ");
                 opertator = Console.ReadLine();
+                #endregion
+
+                #region Output switch if & switch 
 
                 if (string.IsNullOrWhiteSpace(opertator))
                     throw new Exception("\aNot a number");
@@ -41,53 +43,53 @@ namespace testing
                 else switch (opertator)
                 {
                     case "+":
-                        answer = myCalculator.Add(number1, number2);
+                        answer = Calculate.Add(number1, number2);
                         Console.Clear();
                         Console.WriteLine($"Answer: {number1} {opertator} {number2} = {answer}");
                         userOption = false;
                         continue;
                     case "-":
-                        answer = myCalculator.Substract(number1, number2);
+                        answer = Calculate.Substract(number1, number2);
                         Console.Clear();
                         Console.WriteLine($"Answer: {number1} {opertator} {number2} = {answer}");
                         continue;
                     case "*":
-                        answer = myCalculator.Multiply(number1, number2);
+                        answer = Calculate.Multiply(number1, number2);
                         Console.Clear();
                         Console.WriteLine($"Answer: {number1} {opertator} {number2} = {answer}");
                         continue;
                     case "/":
-                        answer = myCalculator.Multiply(number1, number2);
+                        answer = Calculate.Multiply(number1, number2);
                         Console.Clear();
                         Console.WriteLine($"Answer: {number1} {opertator} {number2} = {answer}");
                         continue;
                     case "sq":
-                        answer = myCalculator.GetSquareRoot(number1);
+                        answer = Calculate.GetSquareRoot(number1);
                         Console.Clear();
                         Console.WriteLine($"Answer: {number1} {opertator} {number2} = {answer}");
                         continue;
                     case "s":
-                        answer = myCalculator.GetSin(number1);
+                        answer = Calculate.GetSin(number1);
                         Console.Clear();
                         Console.WriteLine($"Answer: {number1} {opertator} {number2} = {answer}");
                         continue;
                     case "c":
-                        answer = myCalculator.GetCos(number1);
+                        answer = Calculate.GetCos(number1);
                         Console.Clear();
                         Console.WriteLine($"Answer: {number1} {opertator} {number2} = {answer}");
                         continue;
                     case "t":
-                        answer = myCalculator.GetTan(number1);
+                        answer = Calculate.GetTan(number1);
                         Console.Clear();
                         Console.WriteLine($"Answer: {number1} {opertator} {number2} = {answer}");
                         continue;
                     case "l":
-                        answer = myCalculator.GetLog(number1);
+                        answer = Calculate.GetLog(number1);
                         Console.Clear();
                         Console.WriteLine($"Answer: {number1} {opertator} {number2} = {answer}");
                         continue;
                     case "e":
-                        answer = myCalculator.GetExp(number1);
+                        answer = Calculate.GetExp(number1);
                         Console.Clear();
                         Console.WriteLine($"Answer: {number1} {opertator} {number2} = {answer}");
                         continue;
@@ -99,8 +101,8 @@ namespace testing
                         continue;
                 }
 
+                #endregion
             }
-
         }
     }
 }

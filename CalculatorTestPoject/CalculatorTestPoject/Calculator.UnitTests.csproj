@@ -60,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CACalulator\CACalulator\CACalulator.csproj">
+      <Project>{d306c5c8-85de-4049-9fe2-a900cb83d565}</Project>
+      <Name>CACalulator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Calculator\Calculator.csproj">
       <Project>{e3292500-ded7-48cd-8a83-851735210666}</Project>
       <Name>Calculator</Name>
