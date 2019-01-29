@@ -218,7 +218,8 @@ namespace CalculatorTestPoject
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(Exception))] //Look at a better expection
+        
         [DataTestMethod]
         [DataRow(-5.0, DisplayName = "Square Root negative double number with no value")]
         [DataRow(-10.1, DisplayName = "Square Root negative double number with value")]
