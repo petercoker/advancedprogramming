@@ -50,8 +50,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CalculatorTestPoject\Calculator\Calculator.csproj">
-      <Project>{E3292500-DED7-48CD-8A83-851735210666}</Project>
+    <ProjectReference Include="..\Calculator\Calculator.csproj">
+      <Project>{e3292500-ded7-48cd-8a83-851735210666}</Project>
       <Name>Calculator</Name>
     </ProjectReference>
   </ItemGroup>
