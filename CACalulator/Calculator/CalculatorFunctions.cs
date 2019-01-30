@@ -86,7 +86,7 @@ namespace CalculatorFunctions
                         case "e":
                             answer = calculate.GetExp(firstNumber);
                             Console.Clear();
-                            Console.WriteLine($"Answer: Rounded Exp of {firstNumber} = {answer}");
+                            Console.WriteLine($"Answer: Roundeds Exp of {firstNumber} = {answer}");
                             continue;
                         case "q":
                             userOption = true;
