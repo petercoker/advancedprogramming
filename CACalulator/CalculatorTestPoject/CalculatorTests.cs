@@ -404,7 +404,7 @@ namespace CalculatorTestPoject
 
         [TestMethod]
         [DataTestMethod]
-        [Ignore]
+        //[Ignore]
         [DataRow(5.0, 0, DisplayName = "Exp different positive double number with no value")]
         [DataRow(0, 0, DisplayName = "Exp positive zero whole number")]
         [DataRow(5, 0, DisplayName = "Exp different positive number")]
@@ -412,18 +412,12 @@ namespace CalculatorTestPoject
         [DataRow(10, 0, DisplayName = "Exp positive whole number")]
         [DataRow(5.1, 0, DisplayName = "Exp positive double number with value")]
         [DataRow(10.0, 0, DisplayName = "Exp postive double number with no zero")]
-        public void Exp_WhenCalled_ReturnsPositiveNumber(double number, decimal expectedResult)
+        public void Exp_WhenCalled_ReturnsPositiveNumber(double number, double expectedResult)
         {
-            //Assert.That(Math.Round(result, sigDigits), Assert.AreEqual(Ex));
             // Act
             var actualResult = _calculator.GetExp(number);
-            //var compare = actualResult == expectedResult;
 
             // Assert
-            //Assert.AreSame(expectedResult, actualResult);
-            //Assert.IsTrue(expectedResult);
-            //Assert.IsFalse(compare);
-
             Assert.AreEqual(expectedResult, actualResult);
         }
 
