@@ -315,17 +315,14 @@ namespace CalculatorTestPoject
         #endregion
 
         #region Test Tan
-
+        
         [TestMethod]
         [DataTestMethod]
-        [Ignore]
-        [DataRow(5.0, 0, DisplayName = "Tan different positive double number with no value")]
         [DataRow(0, 0, DisplayName = "Tan positive zero whole number")]
-        [DataRow(5, 0, DisplayName = "Tan different positive number")]
         [DataRow(0.0, 0, DisplayName = "Tan positive zero double number with no value")]
-        [DataRow(10, 0, DisplayName = "Tan positive whole number")]
-        [DataRow(5.1, 0, DisplayName = "Tan positive double number with value")]
-        [DataRow(10.0, 0, DisplayName = "Tan positive double number with no zero")]
+        [DataRow(10, 1, DisplayName = "Tan positive whole number")]
+        [DataRow(10.0, 1, DisplayName = "Tan positive double number with no zero")]
+        //[Ignore]
         public void Tan_WhenCalled_ReturnsPositiveNumber(double a, double expectedResult)
         {
             // Act
@@ -337,7 +334,11 @@ namespace CalculatorTestPoject
 
         [TestMethod]
         [DataTestMethod]
-        [Ignore]
+        [DataRow(5.1, -2, DisplayName = "Tan positive double number with value")]
+        [DataRow(5.0, -3, DisplayName = "Tan different positive double number with no value")]
+        [DataRow(5, -3, DisplayName = "Tan different positive number")]
+
+    
         [DataRow(-5.0, 0, DisplayName = "Tan negative double number with no value")]
         [DataRow(-10.1, 0, DisplayName = "Tan negative double number with value")]
         [DataRow(-5.1, 0, DisplayName = "Tan different negative double number with value")]
