@@ -120,9 +120,14 @@ namespace CalculatorFunctions
             return (number2 == 0) ? throw new DivideByZeroException("\aCan not divide by 0") : Math.Round(number1 / number2);
         }
 
+        
         public double Multiply(double number1, double number2)
         {
             return Math.Round(number1 * number2);
+        }
+        public double Modulo(double number1, double number2)
+        {
+            return (number2 == 0) ? throw new DivideByZeroException("\aCan not divide by 0") : Math.Round(number1 % number2);
         }
 
         public double GetSquareRoot(double number1)

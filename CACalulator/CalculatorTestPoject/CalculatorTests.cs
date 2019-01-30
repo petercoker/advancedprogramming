@@ -197,6 +197,45 @@ namespace CalculatorTestPoject
         }
         #endregion
 
+        #region Modulo
+        [DataRow(-10.1, 10.1, -1, DisplayName = "Modulo negative double number to positive double number with value")]
+        [DataRow(-5.1, 10, -1, DisplayName = "Modulo negative double number with value to positive whole number")]
+        [DataRow(-5.0, 10, 0, DisplayName = "Modulo negative double number to positive whole number")]
+        [DataRow(-5, 10, 0, DisplayName = "Modulo negative number to positive number")]
+        [DataRow(-10, 10, -1, DisplayName = "Modulo negative number to positive number that are the same")]
+        public void Modulo_WhenCalled_ReturnsNegativeNumber(double a, double b, double expectedResult)
+        {
+            // Act
+            var actualResult = _calculator.Modulo(a, b);
+
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
+        [Ignore]
+        [ExpectedException(typeof(DivideByZeroException))]
+        [DataTestMethod]
+        [DataRow(5, 0.0, DisplayName = "Modulo positive whole number to double number")]
+        [DataRow(-5, 0, DisplayName = "Modulo negative number with zero")]
+        [DataRow(10.0, 0, DisplayName = "Modulo double number to zero")]
+        public void Modulo_UserModuloByZero_ThrowsModuloByZeroException(double a, double b)
+        {
+            try
+            {
+                // Act
+                new Calculator().Modulo(a, b);
+            }
+            catch (DivideByZeroException exception)
+            {
+                // Assert
+                Assert.AreEqual("\aCan not Modulo by 0", exception.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
         #region Test Square Root
 
         [TestMethod]
@@ -404,7 +443,7 @@ namespace CalculatorTestPoject
 
         [TestMethod]
         [DataTestMethod]
-        //[Ignore]
+        [Ignore]
         [DataRow(5.0, 0, DisplayName = "Exp different positive double number with no value")]
         [DataRow(0, 0, DisplayName = "Exp positive zero whole number")]
         [DataRow(5, 0, DisplayName = "Exp different positive number")]
