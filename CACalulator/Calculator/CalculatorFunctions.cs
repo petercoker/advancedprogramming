@@ -9,8 +9,10 @@ namespace CalculatorFunctions
         {
             Calculator calculate = new Calculator();
             bool userOption = false;
-            double firstNumber, secondNumber, answer;
+            double firstNumber;
+            double secondNumber;
             string function;
+            double answer;
 
             while (!userOption)
             {
@@ -19,15 +21,11 @@ namespace CalculatorFunctions
 
                 Console.Write("\nEnter first number: ");
                 firstNumber = double.Parse(Console.ReadLine());
-
-                if (firstNumber == null)
-                    throw new ArgumentNullException(nameof(firstNumber), "Number must not be null");
+                
 
                 Console.Write("Enter second number: ");
                 secondNumber = double.Parse(Console.ReadLine());
-
-                if (secondNumber == null)
-                    throw new ArgumentNullException(nameof(firstNumber), "Number must not be null");
+                
 
                 Console.Write("\n(+, -, *, /, sq = SquareRoot, s = Sin, c = Cos, t = Tan, l = Log, e = Exp)\nSelect an Opertator or \"q\": ");
                 function = Console.ReadLine();
@@ -99,6 +97,7 @@ namespace CalculatorFunctions
                     }
 
                 #endregion
+
             }
         }
 

@@ -272,22 +272,6 @@ namespace CalculatorTestPoject
             Assert.AreEqual(expectedResult, actualResult);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(Exception))]
-        [DataTestMethod]
-        [Ignore]
-        [DataRow(-5.0, DisplayName = "Sin negative double number with no value")]
-        [DataRow(-10.1, DisplayName = "Sin negative double number with value")]
-        [DataRow(-5.1, DisplayName = "Sin different negative double number with value")]
-        [DataRow(-5, DisplayName = "Sin negative whole number")]
-        [DataRow(-10, DisplayName = "Sin different negative number")]
-        [DataRow(-10.0, DisplayName = "Sin negative double number with no value")]
-        public void Sin_UserGetSquareOfNegativeNumber_ThrowsException(double a)
-        {
-            // Act
-            new Calculator().GetSin(a);
-        }
-
         #endregion
 
         #region Test Cos
@@ -295,13 +279,13 @@ namespace CalculatorTestPoject
         [TestMethod]
         [DataTestMethod]
         [DataRow(0, 1, DisplayName = "Cos positive zero whole number")]
-        //[DataRow(5.0, 0.283662185463226, DisplayName = "Cos different positive double number with no value")]
-        //[DataRow(10, 0.98480775301220805936674302458952, DisplayName = "Cos positive whole number")]
-        //[DataRow(5, 0.283662185463226, DisplayName = "Cos different positive number")]
-        //[DataRow(0.0, 1, DisplayName = "Cos positive zero double number with no value")]
-        //[Ignore]
-        //[DataRow(5.1, 0.99604106541076958023324640524897, DisplayName = "Cos positive double number with value")]
-        //[DataRow(10.0, -0.839071529076452, DisplayName = "Cos positive double number with no zero")]
+        [DataRow(5.0, 0, DisplayName = "Cos different positive double number with no value")]
+        [DataRow(5.1, 0, DisplayName = "Cos positive double number with value")]
+        [DataRow(-5.0, 0, DisplayName = "Cos negative double number with no value")]
+        [DataRow(-5.1, 0, DisplayName = "Cos different negative double number with value")]
+        [DataRow(-5, 0, DisplayName = "Cos negative whole number")]
+        [DataRow(5, 0, DisplayName = "Cos different positive number")]
+        [DataRow(0.0, 1, DisplayName = "Cos positive zero double number with no value")]
         public void Cos_WhenCalled_ReturnsPositiveNumber(double a, double expectedResult)
         {
             // Act
@@ -313,13 +297,11 @@ namespace CalculatorTestPoject
 
         [TestMethod]
         [DataTestMethod]
-        [Ignore]
-        [DataRow(-5.0, -0.08715574274765817355806427083747, DisplayName = "Cos negative double number with no value")]
-        [DataRow(-10.1, -0.17536672609198711145598126930508, DisplayName = "Cos negative double number with value")]
-        [DataRow(-5.1, -0.08889429686644151920780187046343, DisplayName = "Cos different negative double number with value")]
-        [DataRow(-5, -0.08889429686644151920780187046343, DisplayName = "Cos negative whole number")]
-        [DataRow(-10, -0.17364817766693034885171662676931, DisplayName = "Cos different negative number")]
-        [DataRow(-10.0, -0.17364817766693034885171662676931, DisplayName = "Cos negative double number with no value")]
+        [DataRow(10.0, -1, DisplayName = "Cos positive double number with no zero")]
+        [DataRow(10, -1, DisplayName = "Cos positive whole number")]
+        [DataRow(-10.1, -1, DisplayName = "Cos negative double number with value")]
+        [DataRow(-10, -1, DisplayName = "Cos different negative number")]
+        [DataRow(-10.0, -1, DisplayName = "Cos negative double number with no value")]
         public void Cos_WhenCalled_ReturnsNegativeNumber(double a, double expectedResult)
         {
             // Act
@@ -328,22 +310,8 @@ namespace CalculatorTestPoject
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
-
-        //[TestMethod]
-        //[ExpectedException(typeof(Exception))]
-        //[DataTestMethod]
-        //[DataRow(-5.0,  DisplayName = "Sin negative double number with no value")]
-        //[DataRow(-10.1, DisplayName = "Sin negative double number with value")]
-        //[DataRow(-5.1, DisplayName = "Sin different negative double number with value")]
-        //[DataRow(-5, DisplayName = "Sin negative whole number")]
-        //[DataRow(-10, DisplayName = "Sin different negative number")]
-        //[DataRow(-10.0, DisplayName = "Sin negative double number with no value")]
-        //public void Sin_UserGetSquareOfNegativeNumber_ThrowsException(double a)
-        //{
-        //    // Act
-        //    new Calculator().GetSin(a);
-        //}
-
+        
+      
         #endregion
 
         #region Test Tan
@@ -499,23 +467,6 @@ namespace CalculatorTestPoject
             // Act
             new Calculator().GetExp(a);
         }
-
-        #endregion
-
-        #region Test User input
-
-        [TestMethod]
-        [Ignore]
-        public void Main_UserEnterFirstNumber_GetDoubleDataType()
-        {
-
-            // Act
-           // var actualResult = (a);
-
-            //Assert.IsInstanceOfType(double, GetType());
-        }
-
-
 
         #endregion
 
