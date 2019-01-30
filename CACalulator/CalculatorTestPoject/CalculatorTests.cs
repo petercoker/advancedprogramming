@@ -322,7 +322,8 @@ namespace CalculatorTestPoject
         [DataRow(0.0, 0, DisplayName = "Tan positive zero double number with no value")]
         [DataRow(10, 1, DisplayName = "Tan positive whole number")]
         [DataRow(10.0, 1, DisplayName = "Tan positive double number with no zero")]
-        //[Ignore]
+        [DataRow(-5.1, 2, DisplayName = "Tan different negative double number with value")]
+        [DataRow(-5, 3, DisplayName = "Tan negative whole number")]
         public void Tan_WhenCalled_ReturnsPositiveNumber(double a, double expectedResult)
         {
             // Act
@@ -334,17 +335,13 @@ namespace CalculatorTestPoject
 
         [TestMethod]
         [DataTestMethod]
+        [DataRow(-10.1, -1, DisplayName = "Tan negative double number with value")]
+        [DataRow(-10.0, -1, DisplayName = "Tan negative double number with no value")]
         [DataRow(5.1, -2, DisplayName = "Tan positive double number with value")]
         [DataRow(5.0, -3, DisplayName = "Tan different positive double number with no value")]
         [DataRow(5, -3, DisplayName = "Tan different positive number")]
-
-    
-        [DataRow(-5.0, 0, DisplayName = "Tan negative double number with no value")]
-        [DataRow(-10.1, 0, DisplayName = "Tan negative double number with value")]
-        [DataRow(-5.1, 0, DisplayName = "Tan different negative double number with value")]
-        [DataRow(-5, 0, DisplayName = "Tan negative whole number")]
-        [DataRow(-10, 0, DisplayName = "Tan different negative number")]
-        [DataRow(-10.0, 0, DisplayName = "Tan negative double number with no value")]
+        [DataRow(-10, -1, DisplayName = "Tan different negative number")]
+        [DataRow(-5.0, 3, DisplayName = "Tan negative double number with no value")]
         public void Tan_WhenCalled_ReturnsNegativeNumber(double a, double expectedResult)
         {
             // Act
@@ -352,15 +349,6 @@ namespace CalculatorTestPoject
 
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [TestMethod]
-        [DataTestMethod]
-        [Ignore]
-        public void Tan_WhenCalled_ThrowException(double a)
-        {
-            // Act
-            new Calculator().GetTan(a);
         }
 
         #endregion
