@@ -357,14 +357,11 @@ namespace CalculatorTestPoject
 
         [TestMethod]
         [DataTestMethod]
-        [Ignore]
-        [DataRow(5.0, 0, DisplayName = "Log different positive double number with no value")]
-        [DataRow(0, 0, DisplayName = "Log positive zero whole number")]
-        [DataRow(5, 0, DisplayName = "Log different positive number")]
-        [DataRow(0.0, 0, DisplayName = "Log positive zero double number with no value")]
-        [DataRow(10, 0, DisplayName = "Log positive whole number")]
-        [DataRow(5.1, 0, DisplayName = "Log positive double number with value")]
-        [DataRow(10.0, 0, DisplayName = "Log positive double number with no zero")]
+        [DataRow(5.0, 2, DisplayName = "Log different positive double number with no value")]
+        [DataRow(5, 2, DisplayName = "Log different positive number")]
+        [DataRow(10, 2, DisplayName = "Log positive whole number")]
+        [DataRow(5.1, 2, DisplayName = "Log positive double number with value")]
+        [DataRow(10.0, 2, DisplayName = "Log positive double number with no zero")]
         public void Log_WhenCalled_ReturnsPositiveNumber(double a, double expectedResult)
         {
             // Act
@@ -373,32 +370,32 @@ namespace CalculatorTestPoject
             // Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
-
+        
         [TestMethod]
-        [DataTestMethod]
         [Ignore]
+        [ExpectedException(typeof(DivideByZeroException))]
+        [DataTestMethod]
+        [DataRow(0, DisplayName = "Log positive zero whole number")]
+        [DataRow(0.0, DisplayName = "Log positive zero double number with no value")]
         [DataRow(-5.0, 0, DisplayName = "Log negative double number with no value")]
         [DataRow(-10.1, 0, DisplayName = "Log negative double number with value")]
         [DataRow(-5.1, 0, DisplayName = "Log different negative double number with value")]
         [DataRow(-5, 0, DisplayName = "Log negative whole number")]
         [DataRow(-10, 0, DisplayName = "Log different negative number")]
-        [DataRow(-10.0, 0, DisplayName = "Log negative double number with no value")]
-        public void Log_WhenCalled_ReturnsNegativeNumber(double a, double expectedResult)
+        [DataRow(-10.0, 0, DisplayName = "Log negative different double number with no value")]
+        public void Log_WhenCalled_ThrowsDivideByZeroException(double a)
         {
-            // Act
-            var actualResult = _calculator.GetLog(a);
-
-            // Assert
-            Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [TestMethod]
-        [DataTestMethod]
-        [Ignore]
-        public void Log_WhenCalled_ThrowException(double a)
-        {
-            // Act
-            new Calculator().GetLog(a);
+            try
+            {
+                // Act
+                new Calculator().GetLog(a);
+            }
+            catch (DivideByZeroException exception)
+            {
+                // Assert
+                Assert.AreEqual("\aCan not divide by 0", exception.Message);
+                throw;
+            }
         }
 
         #endregion

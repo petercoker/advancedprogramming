@@ -125,34 +125,34 @@ namespace CalculatorFunctions
             return Math.Round(number1 * number2);
         }
 
-        public double GetSquareRoot(double number)
+        public double GetSquareRoot(double number1)
         {
-            return (number < -0.0 || number < 0) ? throw new Exception("\aNot a number") : Math.Round(Math.Sqrt(number));
+            return (number1 < -0.0 || number1 < 0) ? throw new Exception("\aNot a number") : Math.Round(Math.Sqrt(number1));
         }
 
-        public double GetSin(double number)
+        public double GetSin(double number1)
         {
-            return Math.Round(Math.Sin(number));
+            return Math.Round(Math.Sin(number1));
         }
 
-        public double GetCos(double number)
+        public double GetCos(double number1)
         {
-            return Math.Round(Math.Cos(number));
+            return Math.Round(Math.Cos(number1));
         }
 
-        public double GetTan(double number)
+        public double GetTan(double number1)
         {
-            return Math.Round(Math.Tan(number));
+            return Math.Round(Math.Tan(number1));
         }
 
-        public double GetLog(double number)
+        public double GetLog(double number1)
         {
-            return Math.Round(Math.Log(number));
+            return Math.Round(Math.Log(number1));
         }
 
-        public double GetExp(double number)
+        public double GetExp(double number1)
         {
-            return Math.Round(Math.Exp(number));
+            return (number1 >= 0 || number1 >= 0.0) ? throw new DivideByZeroException("\aCan not divide by 0") : Math.Round(Math.Exp(number1));
         }
         #endregion
     }
