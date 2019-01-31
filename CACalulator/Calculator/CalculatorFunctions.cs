@@ -27,7 +27,7 @@ namespace CalculatorFunctions
                 secondNumber = double.Parse(Console.ReadLine());
                 
 
-                Console.Write("\n(+, -, *, /, sq = SquareRoot, s = Sin, c = Cos, t = Tan, l = Log, e = Exp)\nSelect an Opertator or \"q\": ");
+                Console.Write("\n(+, -, *, /, %, sq = SquareRoot, s = Sin, c = Cos, t = Tan, l = Log, e = Exp)\nSelect an Opertator or \"q\": ");
                 function = Console.ReadLine();
                 #endregion
 
@@ -54,7 +54,12 @@ namespace CalculatorFunctions
                             Console.WriteLine($"Answer: {firstNumber} {function} {secondNumber} = {answer}");
                             continue;
                         case "/":
-                            answer = calculate.Multiply(firstNumber, secondNumber);
+                            answer = calculate.Divide(firstNumber, secondNumber);
+                            Console.Clear();
+                            Console.WriteLine($"Answer: {firstNumber} {function} {secondNumber} = {answer}");
+                            continue;
+                        case "%":
+                            answer = calculate.Modulo(firstNumber, secondNumber);
                             Console.Clear();
                             Console.WriteLine($"Answer: {firstNumber} {function} {secondNumber} = {answer}");
                             continue;
@@ -125,8 +130,10 @@ namespace CalculatorFunctions
         {
             return Math.Round(number1 * number2);
         }
+
         public double Modulo(double number1, double number2)
         {
+            //return (number2 == 0 || number2 == 0.0) ? throw new DivideByZeroException("\aCan not divide by 0") : Math.Round(number1 % number2);
             return (number2 == 0) ? throw new DivideByZeroException("\aCan not divide by 0") : Math.Round(number1 % number2);
         }
 
