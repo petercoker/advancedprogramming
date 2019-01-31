@@ -97,7 +97,6 @@ namespace CalculatorTestPoject
 
         #endregion
 
-
         #region Test Multiply
 
         [TestMethod]
@@ -201,6 +200,24 @@ namespace CalculatorTestPoject
         #region Modulo
 
         [TestMethod]
+        [DataTestMethod]
+        [DataRow(0, 10, 0, DisplayName = "Modulo positive number to zero")]
+        [DataRow(10.1, 10.1, 0, DisplayName = "Modulo negative numbers with value")]
+        [DataRow(10.0, 10.0, 0, DisplayName = "Modulo positive double numbers")]
+        [DataRow(5.1, 10, 5, DisplayName = "Modulo positive double number with value to whole number")]
+        [DataRow(5.0, 10, 5, DisplayName = "Modulo positive double number to whole number ")]
+        [DataRow(5, 10, 5, DisplayName = "Modulo positive numbers that are different ")]
+        [DataRow(10, 10, 0, DisplayName = "Modulo positive numbers that are the same")]
+        public void Modulo_WhenCalled_ReturnsPositiveNumber(double a, double b, double expectedResult)
+        {
+            // Act
+            var actualResult = _calculator.Modulo(a, b);
+
+            // Assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod]
         [DataRow(-10.1, 10.1, 0, DisplayName = "Modulo negative double number to positive double number with value")]
         [DataRow(-5.1, 10, -5, DisplayName = "Modulo negative double number with value to positive whole number")]
         [DataRow(-5.0, 10, -5, DisplayName = "Modulo negative double number to positive whole number")]
@@ -225,19 +242,6 @@ namespace CalculatorTestPoject
         {
             // Act
             _calculator.Modulo(a, b);
-
-            //try
-            //{
-            //    // Act
-            //    //_calculator.Modulo(a, b);
-            //    new Calculator().Modulo(a, b);
-            //}
-            //catch (DivideByZeroException exception)
-            //{
-            //    // Assert
-            //    Assert.AreEqual("\aCan not Modulo by 0", exception.Message);
-            //    throw;
-            //}
         }
 
         #endregion
@@ -417,81 +421,71 @@ namespace CalculatorTestPoject
         }
         
         [TestMethod]
-        [Ignore]
-        [ExpectedException(typeof(DivideByZeroException))]
+        [ExpectedException(typeof(Exception))]
         [DataTestMethod]
         [DataRow(0, DisplayName = "Log positive zero whole number")]
         [DataRow(0.0, DisplayName = "Log positive zero double number with no value")]
-        [DataRow(-5.0, 0, DisplayName = "Log negative double number with no value")]
-        [DataRow(-10.1, 0, DisplayName = "Log negative double number with value")]
-        [DataRow(-5.1, 0, DisplayName = "Log different negative double number with value")]
-        [DataRow(-5, 0, DisplayName = "Log negative whole number")]
-        [DataRow(-10, 0, DisplayName = "Log different negative number")]
-        [DataRow(-10.0, 0, DisplayName = "Log negative different double number with no value")]
+        [DataRow(-5.0, DisplayName = "Log negative double number with no value")]
+        [DataRow(-10.1, DisplayName = "Log negative double number with value")]
+        [DataRow(-5.1, DisplayName = "Log different negative double number with value")]
+        [DataRow(-5, DisplayName = "Log negative whole number")]
+        [DataRow(-10, DisplayName = "Log different negative number")]
+        [DataRow(-10.0, DisplayName = "Log negative different double number with no value")]
         public void Log_WhenCalled_ThrowsDivideByZeroException(double a)
         {
-            try
-            {
-                // Act
-                new Calculator().GetLog(a);
-            }
-            catch (DivideByZeroException exception)
-            {
-                // Assert
-                Assert.AreEqual("\aCan not divide by 0", exception.Message);
-                throw;
-            }
+            // Act
+            _calculator.GetLog(a);
         }
 
         #endregion
 
         #region Test Exp
 
-        [TestMethod]
-        [DataTestMethod]
-        [Ignore]
-        [DataRow(5.0, 0, DisplayName = "Exp different positive double number with no value")]
-        [DataRow(0, 0, DisplayName = "Exp positive zero whole number")]
-        [DataRow(5, 0, DisplayName = "Exp different positive number")]
-        [DataRow(0.0, 0, DisplayName = "Exp positive zero double number with no value")]
-        [DataRow(10, 0, DisplayName = "Exp positive whole number")]
-        [DataRow(5.1, 0, DisplayName = "Exp positive double number with value")]
-        [DataRow(10.0, 0, DisplayName = "Exp postive double number with no zero")]
-        public void Exp_WhenCalled_ReturnsPositiveNumber(double number, double expectedResult)
-        {
-            // Act
-            var actualResult = _calculator.GetExp(number);
+        //[TestMethod]
+        //[DataTestMethod]
+        //[Ignore]
+        //[DataRow(5.0, 0, DisplayName = "Exp different positive double number with no value")]
+        //[DataRow(0, 0, DisplayName = "Exp positive zero whole number")]
+        //[DataRow(5, 0, DisplayName = "Exp different positive number")]
+        //[DataRow(0.0, 0, DisplayName = "Exp positive zero double number with no value")]
+        //[DataRow(10, 0, DisplayName = "Exp positive whole number")]
+        //[DataRow(5.1, 0, DisplayName = "Exp positive double number with value")]
+        //[DataRow(10.0, 0, DisplayName = "Exp postive double number with no zero")]
+        //public void Exp_WhenCalled_ReturnsPositiveNumber(double number, double expectedResult)
+        //{
+        //    // Act
+        //    var actualResult = _calculator.GetExp(number);
 
-            // Assert
-            Assert.AreEqual(expectedResult, actualResult);
-        }
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, actualResult);
+        //}
 
-        [TestMethod]
-        [DataTestMethod]
-        [Ignore]
-        [DataRow(-5.0, 0, DisplayName = "Exp negative double number with no value")]
-        [DataRow(-10.1, 0, DisplayName = "Exp negative double number with value")]
-        [DataRow(-5.1, 0, DisplayName = "Exp different negative double number with value")]
-        [DataRow(-5, 0, DisplayName = "Exp negative whole number")]
-        [DataRow(-10, 0, DisplayName = "Exp different negative number")]
-        [DataRow(-10.0, 0, DisplayName = "Exp negative double number with no value")]
-        public void Exp_WhenCalled_ReturnsNegativeNumber(double a, double expectedResult)
-        {
-            // Act
-            var actualResult = _calculator.GetExp(a);
+        //[TestMethod]
+        //[DataTestMethod]
+        ////[Ignore]
+        //[DataRow(-5.0, 0, DisplayName = "Exp negative double number with no value")]
+        //[DataRow(-10.1, 0, DisplayName = "Exp negative double number with value")]
+        //[DataRow(-5.1, 0, DisplayName = "Exp different negative double number with value")]
+        //[DataRow(-5, 0, DisplayName = "Exp negative whole number")]
+        //[DataRow(-10, 0, DisplayName = "Exp different negative number")]
+        //[DataRow(-10.0, 0, DisplayName = "Exp negative double number with no value")]
+        //public void Exp_WhenCalled_ReturnsNegativeNumber(double a, double expectedResult)
+        //{
+        //    // Act
+        //    var actualResult = _calculator.GetExp(a);
 
-            // Assert
-            Assert.AreEqual(expectedResult, actualResult);
-        }
+        //    // Assert
+        //    Assert.AreEqual(expectedResult, actualResult);
+        //}
 
-        [TestMethod]
-        [DataTestMethod]
-        [Ignore]
-        public void Exp_WhenCalled_ThrowException(double a)
-        {
-            // Act
-            new Calculator().GetExp(a);
-        }
+        //[TestMethod]
+        //[DataTestMethod]
+        //[Ignore]
+        //public void Exp_WhenCalled_ThrowException(double a)
+        //{
+        //    // Act
+        //    new Calculator().GetExp(a);
+        //}
 
         #endregion
 
