@@ -4,103 +4,39 @@ namespace CalculatorFunctions
 {
     public class Calculator
     {
-        #region Interface
-        public void GetInput()
+        #region Input
+        public static string Choice()
         {
-            Calculator calculate = new Calculator();
-            bool userOption = false;
-            double firstNumber;
-            double secondNumber;
-            string function;
-            double answer;
-
-            while (!userOption)
+            string choice;
+            do
             {
-                #region Userinput
-                Console.WriteLine("Calculator Console App");
+                Console.Write(
+                    "\n(+, -, *, /, %, sq = SquareRoot, s = Sin, c = Cos, t = Tan, l = Log)\nSelect an Opertator or \"q\": ");
+                choice = Console.ReadLine();
 
-                Console.Write("\nEnter first number: ");
-                firstNumber = double.Parse(Console.ReadLine());
-                
-
-                Console.Write("Enter second number: ");
-                secondNumber = double.Parse(Console.ReadLine());
-                
-
-                Console.Write("\n(+, -, *, /, %, sq = SquareRoot, s = Sin, c = Cos, t = Tan, l = Log)\nSelect an Opertator or \"q\": ");
-                function = Console.ReadLine();
-                #endregion
-
-                #region Output switch if & switch 
-
-                if (string.IsNullOrWhiteSpace(function))
-                    throw new ArgumentNullException(nameof(function), "funcation must not be null");
-
-                else switch (function)
-                {
-                    case "+":
-                        answer = calculate.Add(firstNumber, secondNumber);
-                        Console.Clear();
-                        Console.WriteLine($"Answer: {firstNumber} {function} {secondNumber} = {answer}");
-                        continue;
-                    case "-":
-                        answer = calculate.Substract(firstNumber, secondNumber);
-                        Console.Clear();
-                        Console.WriteLine($"Answer: {firstNumber} {function} {secondNumber} = {answer}");
-                        continue;
-                    case "*":
-                        answer = calculate.Multiply(firstNumber, secondNumber);
-                        Console.Clear();
-                        Console.WriteLine($"Answer: {firstNumber} {function} {secondNumber} = {answer}");
-                        continue;
-                    case "/":
-                        answer = calculate.Divide(firstNumber, secondNumber);
-                        Console.Clear();
-                        Console.WriteLine($"Answer: {firstNumber} {function} {secondNumber} = {answer}");
-                        continue;
-                    case "%":
-                        answer = calculate.Modulo(firstNumber, secondNumber);
-                        Console.Clear();
-                        Console.WriteLine($"Answer: {firstNumber} {function} {secondNumber} = {answer}");
-                        continue;
-                    case "sq":
-                        answer = calculate.GetSquareRoot(firstNumber);
-                        Console.Clear();
-                        Console.WriteLine($"Answer: Rounded Square Root of {firstNumber} = {answer}");
-                        continue;
-                    case "s":
-                        answer = calculate.GetSin(firstNumber);
-                        Console.Clear();
-                        Console.WriteLine($"Answer: Rounded Sin of {firstNumber} = {answer}");
-                        continue;
-                    case "c":
-                        answer = calculate.GetCos(firstNumber);
-                        Console.Clear();
-                        Console.WriteLine($"Answer: Rounded Cos of {firstNumber} = {answer}");
-                        continue;
-                    case "t":
-                        answer = calculate.GetTan(firstNumber);
-                        Console.Clear();
-                        Console.WriteLine($"Answer: Rounded Tan of {firstNumber} = {answer}");
-                        continue;
-                    case "l":
-                        answer = calculate.GetLog(firstNumber);
-                        Console.Clear();
-                        Console.WriteLine($"Answer: Rounded Log of {firstNumber} = {answer}");
-                        continue;
-                    case "q":
-                        userOption = true;
-                        break;
-                    default:
-                        Console.WriteLine("Wrong opertator, please select an operator");
-                        continue;
-                }
-
-                #endregion
-
-            }
+            } while (string.IsNullOrWhiteSpace(choice));
+            return choice;
         }
 
+        public double GetSecondNumber()
+        {
+            double secondNumber;
+            do
+            {
+               Console.Write("Enter second number: ");
+            } while (!double.TryParse(Console.ReadLine(), out secondNumber));
+            return secondNumber;
+        }
+
+        public double GetFirstNumber()
+        {
+            double firstNumber;
+            do
+            {
+               Console.Write("\nEnter first number: ");
+            } while(!double.TryParse(Console.ReadLine(), out firstNumber));
+            return firstNumber;
+        }
         #endregion
 
         #region Functions
@@ -155,7 +91,7 @@ namespace CalculatorFunctions
         {
             return (number1 <= 0 || number1 <= 0.0) ? throw new Exception("\aInvalid input") : Math.Round(Math.Log(number1));
         }
-        
+
         #endregion
     }
 }

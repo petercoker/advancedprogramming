@@ -1,6 +1,9 @@
 ﻿using System;
+using System.CodeDom;
 using CalculatorFunctions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace CalculatorTestPoject
 {
@@ -438,56 +441,6 @@ namespace CalculatorTestPoject
         }
 
         #endregion
-
-        #region Test Exp
-
-        //[TestMethod]
-        //[DataTestMethod]
-        //[Ignore]
-        //[DataRow(5.0, 0, DisplayName = "Exp different positive double number with no value")]
-        //[DataRow(0, 0, DisplayName = "Exp positive zero whole number")]
-        //[DataRow(5, 0, DisplayName = "Exp different positive number")]
-        //[DataRow(0.0, 0, DisplayName = "Exp positive zero double number with no value")]
-        //[DataRow(10, 0, DisplayName = "Exp positive whole number")]
-        //[DataRow(5.1, 0, DisplayName = "Exp positive double number with value")]
-        //[DataRow(10.0, 0, DisplayName = "Exp postive double number with no zero")]
-        //public void Exp_WhenCalled_ReturnsPositiveNumber(double number, double expectedResult)
-        //{
-        //    // Act
-        //    var actualResult = _calculator.GetExp(number);
-
-        //    // Assert
-        //    Assert.AreEqual(expectedResult, actualResult);
-        //}
-
-        //[TestMethod]
-        //[DataTestMethod]
-        ////[Ignore]
-        //[DataRow(-5.0, 0, DisplayName = "Exp negative double number with no value")]
-        //[DataRow(-10.1, 0, DisplayName = "Exp negative double number with value")]
-        //[DataRow(-5.1, 0, DisplayName = "Exp different negative double number with value")]
-        //[DataRow(-5, 0, DisplayName = "Exp negative whole number")]
-        //[DataRow(-10, 0, DisplayName = "Exp different negative number")]
-        //[DataRow(-10.0, 0, DisplayName = "Exp negative double number with no value")]
-        //public void Exp_WhenCalled_ReturnsNegativeNumber(double a, double expectedResult)
-        //{
-        //    // Act
-        //    var actualResult = _calculator.GetExp(a);
-
-        //    // Assert
-        //    Assert.AreEqual(expectedResult, actualResult);
-        //}
-
-        //[TestMethod]
-        //[DataTestMethod]
-        //[Ignore]
-        //public void Exp_WhenCalled_ThrowException(double a)
-        //{
-        //    // Act
-        //    new Calculator().GetExp(a);
-        //}
-
-        #endregion
-
+        
     }
 }
